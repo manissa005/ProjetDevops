@@ -3,11 +3,14 @@ package com.kenkogroup.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kenkogroup.entities.Recipe;
 import com.kenkogroup.repositories.RecipeRepository;
 import com.kenkogroup.service.RecipeService;
+
 
 @Service
 public class RecipeServiceImpl implements RecipeService {
@@ -17,6 +20,7 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	@Override
 	public List<Recipe> getAllRecipes() {
+		System.out.println("je suis dans recipeserviceimpl");
 		return (List<Recipe>)recipeRepository.findAll();
 	}
 

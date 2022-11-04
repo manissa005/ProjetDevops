@@ -3,6 +3,7 @@ package com.kenkogroup.entities;
 import java.util.Map;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,10 +22,11 @@ public class Recipe {
 	@Column(name="name")
 	private String name;
 	
-	@Column(name="categoryId")
-	private String caterogy;
+	@Column(name="category")
+	private int caterogy;
 	
-	private Map<String,Double> ingredients;
+	//@ElementCollection
+	//private Map<String,Double> ingredients;
 	
 	@Column(name="description")
 	private String description;
@@ -40,12 +42,12 @@ public class Recipe {
 		super();
 	}
 
-	public Recipe(String name, String caterogy, Map<String, Double> ingredients, String description, int duration,
+	public Recipe(String name, int caterogy, Map<String, Double> ingredients, String description, int duration,
 			boolean taken) {
 		super();
 		this.name = name;
 		this.caterogy = caterogy;
-		this.ingredients = ingredients;
+		//this.ingredients = ingredients;
 		this.description = description;
 		this.duration = duration;
 		this.taken = taken;
