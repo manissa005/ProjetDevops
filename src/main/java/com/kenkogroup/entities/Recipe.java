@@ -2,6 +2,7 @@ package com.kenkogroup.entities;
 
 import java.util.Map;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,12 +15,24 @@ public class Recipe {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idRecipe;
+	@Column(name="recipeId")
+	private int idRecipe;
+	
+	@Column(name="name")
 	private String name;
+	
+	@Column(name="categoryId")
 	private String caterogy;
+	
 	private Map<String,Double> ingredients;
+	
+	@Column(name="description")
 	private String description;
-	private Long duration;
+	
+	@Column(name="duration")
+	private int duration;
+	
+	@Column(name="taken")
 	private boolean taken;
 	
 	
@@ -27,7 +40,7 @@ public class Recipe {
 		super();
 	}
 
-	public Recipe(String name, String caterogy, Map<String, Double> ingredients, String description, Long duration,
+	public Recipe(String name, String caterogy, Map<String, Double> ingredients, String description, int duration,
 			boolean taken) {
 		super();
 		this.name = name;
