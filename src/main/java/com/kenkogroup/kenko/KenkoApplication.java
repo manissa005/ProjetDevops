@@ -9,5 +9,4 @@ public class KenkoApplication {
     public static void main(String[] args) {
         SpringApplication.run(KenkoApplication.class, args);
     }
-
 }
