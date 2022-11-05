@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.kenkogroup.entities.Recipe;
@@ -27,8 +29,8 @@ public class RecipeController {
 			recipes = recipeService.getAllRecipes();
 		}
 		catch(Exception e){
-			e.getMessage();
 			System.out.println("je suis dans catch dans controller");
+			e.printStackTrace();
 		}
 		return new ResponseEntity<List<Recipe>>(recipes, HttpStatus.OK);
 	}
@@ -43,5 +45,23 @@ public class RecipeController {
 			e.getMessage();
 		}
 		return new ResponseEntity<Recipe>(recipe, HttpStatus.OK);
+	}
+	
+	@PostMapping("/addorUpdate")
+	public ResponseEntity<Recipe> addOrUpdate(@RequestBody Recipe recipe){
+		System.out.println("recette recupere : ");
+		System.out.println(recipe);
+		 Recipe recipe2 = null;
+		try {
+			System.out.println("je suis dans try du controller");
+			recipe2 = recipeService.addOrUpdateRecipe(recipe);
+		}
+		catch(Exception e){
+			System.out.println("je suis dans catch du controller");
+			e.printStackTrace();
+		}
+		System.out.println("recette envoye : ");
+		System.out.println(recipe2);
+		return new ResponseEntity<Recipe>(recipe2, HttpStatus.OK);
 	}
 }

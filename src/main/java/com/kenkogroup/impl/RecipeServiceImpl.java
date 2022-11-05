@@ -31,6 +31,7 @@ public class RecipeServiceImpl implements RecipeService {
 
 	@Override
 	public Recipe addOrUpdateRecipe(Recipe recipe) {
+		System.out.println("je suis dans serviceimpl dans addorupdate");
 		return recipeRepository.save(recipe);
 	}
 
