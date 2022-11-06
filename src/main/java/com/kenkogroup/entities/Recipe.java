@@ -16,13 +16,13 @@ public class Recipe {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="recipeId",updatable=true, insertable=true)
+	@Column(name="recipe_id",nullable = false)
 	private int idRecipe;
 	
-	@Column(name="name",updatable=true,insertable=true)
+	@Column(name="name")
 	private String name;
 	
-	@Column(name="category",updatable=true,insertable=true)
+	@Column(name="category")
 	private int category;
 	
 	//@ElementCollection
