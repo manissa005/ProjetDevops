@@ -1,10 +1,8 @@
 package com.kenkogroup.kenko.controller;
-
 import com.kenkogroup.kenko.entity.Fridge;
 import com.kenkogroup.kenko.service.FridgeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -30,9 +28,9 @@ public class FridgeController {
     public Fridge findFridgeById(@PathVariable int id){
        return service.getFridgeById(id);
     }
-    @GetMapping("/Fridge/{userId}")
-    public Fridge findFridgeByUserId(@PathVariable int userId){
-        return service.getFridgeById(userId);
+    @GetMapping("/Fridge/{user_id}")
+    public Fridge findFridgeByUserId(@PathVariable int user_id){
+        return service.getFridgeById(user_id);
     }
 
     @PutMapping ("/update")

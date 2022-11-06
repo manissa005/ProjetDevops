@@ -1,31 +1,48 @@
 package com.kenkogroup.kenko.entity;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.*;
+import javax.persistence.*;
 import java.util.Map;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-
+@ToString
 @Entity
-@Table()
+@Table(name = "fridge")
 
 public class Fridge {
     @Id
     @GeneratedValue
 
+    @Column(name="id",nullable = false)
     private int id;
+    @Column(name="user_id",nullable = false)
     private int userId;
-    private Map<String, Float> product;
 
-
-
+    @Column(name="product")
+    String product; // juste pour tester
+    public void setId(int id)
+    {
+        this.id = id;
     }
+    public int getId()
+    {
+        return id;
+    }
+    public void setUserId(int userId)
+    {
+        this.userId = userId;
+    }
+    public int getUserId()
+    {
+        return userId;
+    }
+
+    public void setProduct(String product)
+    {
+        this.product = product;
+    }
+    public String getProduct()
+    {
+        return product;
+    }
+
+
 }
+

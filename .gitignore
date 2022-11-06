@@ -4,7 +4,8 @@ build/
 !ProjetDevops/gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-
+build.gradle
+/src/main/resources/application.properties
 ### STS ###
 .apt_generated
 .classpath
