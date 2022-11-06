@@ -19,7 +19,6 @@ import com.kenkogroup.service.RecipeService;
 public class KenkoApplication {
 
     public static void main(String[] args) {
-    	System.out.println("je suis dans le main");
         SpringApplication.run(KenkoApplication.class, args);
     }
 }

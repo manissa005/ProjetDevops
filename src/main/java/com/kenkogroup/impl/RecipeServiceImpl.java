@@ -24,7 +24,6 @@ public class RecipeServiceImpl implements RecipeService {
 
 	@Override
 	public List<Recipe> getAllRecipes() {
-		System.out.println("je suis dans recipeserviceimpl");
 		return (List<Recipe>)recipeRepository.findAll();
 	}
 
@@ -35,7 +34,6 @@ public class RecipeServiceImpl implements RecipeService {
 
 	@Override
 	public Recipe addRecipe(Recipe recipe) {
-		System.out.println("je suis dans serviceimpl dans addorupdate");
 		return recipeRepository.save(recipe);
 	}
 

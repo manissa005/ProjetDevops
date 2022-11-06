@@ -29,11 +29,9 @@ public class RecipeController {
 	public ResponseEntity<List<Recipe>> getAllRecipes(){
 		List<Recipe> recipes = null;
 		try {
-			System.out.println("je suis dans try dans controller");
 			recipes = recipeService.getAllRecipes();
 		}
 		catch(Exception e){
-			System.out.println("je suis dans catch dans controller");
 			e.printStackTrace();
 		}
 		return new ResponseEntity<List<Recipe>>(recipes, HttpStatus.OK);
@@ -57,15 +55,11 @@ public class RecipeController {
 		System.out.println(recipe);
 		 Recipe recipe2 = null;
 		try {
-			System.out.println("je suis dans try du controller");
 			recipe2 = recipeService.addRecipe(recipe);
 		}
 		catch(Exception e){
-			System.out.println("je suis dans catch du controller");
 			e.printStackTrace();
 		}
-		System.out.println("recette envoye : ");
-		System.out.println(recipe2);
 		return new ResponseEntity<Recipe>(recipe2, HttpStatus.OK);
 	}
 	
