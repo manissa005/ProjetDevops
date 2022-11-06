@@ -8,7 +8,7 @@ public interface RecipeService {
 	
 	public List<Recipe> getAllRecipes();
 	public Recipe getRecipeById(int userId);
-	public Recipe addOrUpdateRecipe(Recipe recipe);
+	public Recipe addRecipe(Recipe recipe);
 	public Recipe deleteRecipe(int recipeId) throws Exception;
 
 }

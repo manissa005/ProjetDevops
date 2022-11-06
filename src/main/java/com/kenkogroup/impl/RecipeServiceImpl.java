@@ -18,6 +18,10 @@ public class RecipeServiceImpl implements RecipeService {
 	@Autowired
 	private RecipeRepository recipeRepository;
 	
+	public RecipeRepository getRecipeRepository() {
+		return recipeRepository;
+	}
+
 	@Override
 	public List<Recipe> getAllRecipes() {
 		System.out.println("je suis dans recipeserviceimpl");
@@ -30,7 +34,7 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 	@Override
-	public Recipe addOrUpdateRecipe(Recipe recipe) {
+	public Recipe addRecipe(Recipe recipe) {
 		System.out.println("je suis dans serviceimpl dans addorupdate");
 		return recipeRepository.save(recipe);
 	}
@@ -43,6 +47,10 @@ public class RecipeServiceImpl implements RecipeService {
 			if(deletedRecipe == null) {
 				throw new Exception("This recipe doesn't exist");
 			}
+			else {
+				recipeRepository.deleteById(recipeId);
+			}
+			
 		}
 		catch(Exception e) {
 			throw e;

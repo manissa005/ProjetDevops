@@ -2,6 +2,8 @@ package com.kenkogroup.Controller;
 
 import java.util.List;
 
+import javax.management.AttributeNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,14 +51,14 @@ public class RecipeController {
 		return new ResponseEntity<Recipe>(recipe, HttpStatus.OK);
 	}
 	
-	@PostMapping("/addorUpdate")
-	public ResponseEntity<Recipe> addOrUpdate(@RequestBody Recipe recipe){
+	@PostMapping("/add")
+	public ResponseEntity<Recipe> addRecipe(@RequestBody Recipe recipe){
 		System.out.println("recette recupere : ");
 		System.out.println(recipe);
 		 Recipe recipe2 = null;
 		try {
 			System.out.println("je suis dans try du controller");
-			recipe2 = recipeService.addOrUpdateRecipe(recipe);
+			recipe2 = recipeService.addRecipe(recipe);
 		}
 		catch(Exception e){
 			System.out.println("je suis dans catch du controller");
@@ -65,6 +68,19 @@ public class RecipeController {
 		System.out.println(recipe2);
 		return new ResponseEntity<Recipe>(recipe2, HttpStatus.OK);
 	}
+	
+	@PutMapping("/update/{id}")
+    public ResponseEntity<Recipe> updateRecipe(@PathVariable int id,@RequestBody Recipe recipeDetails) {
+        Recipe updateRecipe = recipeService.getRecipeById(id);
+        if (updateRecipe==null) new AttributeNotFoundException("Recipe not exist with id: " + id);
+        updateRecipe.setName(recipeDetails.getName());
+        updateRecipe.setCategory(recipeDetails.getCategory());
+        updateRecipe.setDescription(recipeDetails.getDescription());
+        updateRecipe.setDuration(recipeDetails.getDuration());
+        updateRecipe.setTaken(recipeDetails.isTaken());
+        recipeService.addRecipe(updateRecipe);
+        return ResponseEntity.ok(updateRecipe);
+    }
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Recipe> deleteRecipeById(@PathVariable("id") int recipeId){
