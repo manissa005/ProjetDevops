@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko;
+package com.kenkogroup.kenko.UserTest.UserRepositoryTest;
 
 import com.kenkogroup.kenko.user.entity.User;
 import com.kenkogroup.kenko.user.repository.UserRepository;
@@ -14,12 +14,9 @@ import java.util.Optional;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
-class KenkoApplicationTests {
 
-    //@Test
-    //void contextLoads() {
-    //}
+@SpringBootTest
+public class UserRepositoryTest {
     @Autowired
     UserRepository userRepository;
     private User user1;
