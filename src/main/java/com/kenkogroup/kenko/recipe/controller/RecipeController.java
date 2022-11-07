@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.management.AttributeNotFoundException;
 
+import com.kenkogroup.kenko.recipe.entity.Recipe;
+import com.kenkogroup.kenko.recipe.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +17,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.kenkogroup.entities.Recipe;
-import com.kenkogroup.service.RecipeService;
+
+
 
 @RestController
 @RequestMapping("/recipe")

@@ -2,14 +2,13 @@ package com.kenkogroup.kenko.recipe.impl;
 
 import java.util.List;
 
+import com.kenkogroup.kenko.recipe.entity.Recipe;
+import com.kenkogroup.kenko.recipe.repository.RecipeRepository;
+import com.kenkogroup.kenko.recipe.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.kenkogroup.entities.Recipe;
-import com.kenkogroup.repositories.RecipeRepository;
-import com.kenkogroup.service.RecipeService;
+import org.springframework.stereotype.Service;
+
 
 
 @Service

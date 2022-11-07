@@ -2,7 +2,8 @@ package com.kenkogroup.kenko.recipe.service;
 
 import java.util.List;
 
-import com.kenkogroup.entities.Recipe;
+
+import com.kenkogroup.kenko.recipe.entity.Recipe;
 
 public interface RecipeService {
 	
