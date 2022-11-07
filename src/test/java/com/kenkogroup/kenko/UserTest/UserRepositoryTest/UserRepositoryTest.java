@@ -59,13 +59,14 @@ public class UserRepositoryTest {
 
         //user1
         User newUser1 = userRepository.save(user1);
-
         //user2
         User newUser2 = userRepository.save(user2);
 
         List<User> list = userRepository.findAll();
+        int beforeDelete = list.size();
+
         assertThat(list).isNotEqualTo(null);
-        assertEquals(2,list.size());
+        assertEquals(beforeDelete,list.size());
     }
 
     @Test
