@@ -64,6 +64,8 @@ public class UserRepositoryTest {
          userRepository.save(user2);
 
         List<User> list = userRepository.findAll();
+        int beforeDelete = list.size();
+
         assertThat(list).isNotEqualTo(null);
        // assertEquals(2,list.size());
     }
