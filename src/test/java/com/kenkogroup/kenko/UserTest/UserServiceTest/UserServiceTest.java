@@ -85,7 +85,7 @@ public class UserServiceTest {
 
         List <User> users = userService.getUsers();
 
-        assertEquals(2,users.size());
+        assertEquals(list.size(),users.size());
 
         assertNotNull(users);
     }
