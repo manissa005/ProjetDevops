@@ -18,6 +18,7 @@ public class User implements Serializable {
     @Column(name = "firstname",nullable = false, columnDefinition = "varchar(50)")
     private String lastname;
     @Column(name = "lastname",nullable = false, columnDefinition = "varchar(50)")
+
     private String firstname;
 
     @Column(name = "role",nullable = false, columnDefinition = "varchar(50)")
