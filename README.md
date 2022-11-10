@@ -1,5 +1,5 @@
 ![CircleCI](https://img.shields.io/circleci/build/github/manissa005/ProjetDevops/develop)
-[![License](https://img.shields.io/github/license/manissa005/ProjetDevops)](LICENSE)
+[![License](https://img.shields.io/github/license/manissa005/ProjetDevops?label=license)](LICENSE)
 
 
 
