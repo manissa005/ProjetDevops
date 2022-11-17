@@ -1,7 +1,7 @@
-package com.kenkogroup.kenko.service;
+package com.kenkogroup.kenko.product.service;
 
-import com.kenkogroup.kenko.entity.Product;
-import com.kenkogroup.kenko.repository.ProductRepository;
+import com.kenkogroup.kenko.product.entity.Product;
+import com.kenkogroup.kenko.product.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

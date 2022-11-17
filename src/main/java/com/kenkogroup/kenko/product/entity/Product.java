@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.entity;
+package com.kenkogroup.kenko.product.entity;
 
 import lombok.Generated;
 import lombok.ToString;

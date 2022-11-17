@@ -1,7 +1,6 @@
-package com.kenkogroup.kenko.controller;
-
-import com.kenkogroup.kenko.entity.Product;
-import com.kenkogroup.kenko.service.ProductService;
+package com.kenkogroup.kenko.product.controller;
+import com.kenkogroup.kenko.product.entity.Product;
+import com.kenkogroup.kenko.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
