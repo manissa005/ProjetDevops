@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.UserTest.UserServiceTest;
+/*package com.kenkogroup.kenko.UserTest.UserServiceTest;
 
 import com.kenkogroup.kenko.user.entity.User;
 import com.kenkogroup.kenko.user.exception.UserNullException;
@@ -128,3 +128,4 @@ public class UserServiceTest {
         verify(userRepository, times(1)).deleteById(1);
     }
 }
+*/

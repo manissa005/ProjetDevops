@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.UserTest.UserRepositoryTest;
+/*package com.kenkogroup.kenko.UserTest.UserRepositoryTest;
 
 import com.kenkogroup.kenko.user.entity.User;
 import com.kenkogroup.kenko.user.repository.UserRepository;
@@ -120,3 +120,4 @@ public class UserRepositoryTest {
         assertThat(existingUser).isEmpty();
     }
 }
+ */

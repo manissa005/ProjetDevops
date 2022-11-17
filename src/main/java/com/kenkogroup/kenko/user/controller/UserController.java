@@ -88,6 +88,12 @@ public class UserController {
         return service.updateUserbyId(user,id);
     }
 
+    @RequestMapping("/")
+    public String hello()
+    {
+        return "Hello javaTpoint";
+    }
+
     /*@PostMapping("/user/recipe")
     public User addPersonalizedRecipe(@RequestBody Recipe recipe,@PathVariable int id){
         return service.saveRecipe(Recipe,id);
