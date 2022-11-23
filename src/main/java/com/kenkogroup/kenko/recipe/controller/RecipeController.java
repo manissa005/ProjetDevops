@@ -1,29 +1,69 @@
 package com.kenkogroup.kenko.recipe.controller;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.management.AttributeNotFoundException;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import com.kenkogroup.kenko.recipe.entity.edamam.Example;
+import com.kenkogroup.kenko.recipe.entity.edamam.Hit;
+import com.kenkogroup.kenko.recipe.entity.edamam.RecipeEdamam;
 import com.kenkogroup.kenko.recipe.entity.Recipe;
 import com.kenkogroup.kenko.recipe.service.RecipeService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/recipe")
 public class RecipeController {
-	
+
+	@GetMapping("/{search}")
+	public List<RecipeEdamam> getRecettes(@PathVariable String search) throws JsonProcessingException {
+
+		String url = "https://api.edamam.com/search?q=" + search
+				+ "&app_id=656be70f&app_key=036042af3e99ebf91c95f241611890b9&from=0&to=4";
+
+		HttpRequest request = HttpRequest.newBuilder()
+				.uri(URI.create(url))
+				.header("Accept", "*/*")
+				.header("Accept-Encoding", "deflate, br")
+				.method("GET", HttpRequest.BodyPublishers.noBody())
+				.build();
+		HttpResponse<String> response = null;
+		try {
+			response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+		} catch (IOException | InterruptedException e) {
+			e.printStackTrace();
+		}
+		String responseString = response.body();
+
+		Example data = new ObjectMapper().readValue(responseString, Example.class);
+
+		List<Hit> hitList = data.getHits();
+
+		List<RecipeEdamam> recettes = new ArrayList<>();
+
+		for (Hit hit : hitList) {
+			recettes.add(hit.getRecipe());
+		}
+		return recettes;
+
+	}
+
+
 	@Autowired
 	private RecipeService recipeService;
 	
