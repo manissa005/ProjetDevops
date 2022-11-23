@@ -46,12 +46,12 @@ class RecipeComponent extends Component {
                                 </Card.Body>
 
                                 <ListGroup className="list-group-flush">
-                                    <ListGroup.Item><b>Prépartion</b></ListGroup.Item>
+                                    <ListGroup.Item><b>PrÃ©partion</b></ListGroup.Item>
                                     {s.ingredientLines.map(line =>
                                         <ListGroup.Item><li>{line}</li></ListGroup.Item>
                                     )}
 
-                                    <ListGroup.Item><b>Durée</b></ListGroup.Item>
+                                    <ListGroup.Item><b>DurÃ©e</b></ListGroup.Item>
                                     <ListGroup.Item>{s.totalTime}minutes</ListGroup.Item>
 
                                     <ListGroup.Item><b>Calories</b></ListGroup.Item>
