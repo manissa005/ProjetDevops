@@ -36,7 +36,7 @@ Pour lancer le projet vous devriez ouvrir un terminal et lancer la commande suiv
 Le tour est joué
 
 ## La Documentation
-La documentation se trouve dans le lien suivant : [doc](https://drive.google.com/drive/folders/1JETmILa_zc8KtZrtu6rkrBxFwfXMjCo-?hl=fr)
+La documentation se trouve dans le lien suivant : [doc](https://github.com/manissa005/ProjetDevops/blob/develop/DocKenko.pdf)
 
 ## Outils utilisés
 - Github pour le versioning
