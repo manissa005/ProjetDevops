@@ -1,0 +1,69 @@
+@startuml
+
+package "kenko"  {
+  package "recipe"  {
+     package "controller" {
+     class RecipeController implements RecipeService {
+     + List <RecipeEdamam> getRecettes(String search)
+     + ResponseEntity <List<Recipe>> getAllRecipes()
+     + ResponseEntity <Recipe> getRecipeById(int recipeId))
+     + ResponseEntity <Recipe> addRecipe(Recipe recipe))
+     + ResponseEntity <Recipe> updateRecipe(int id,Recipe recipeDetails))
+     + ResponseEntity <Recipe> deleteRecipeById(int recipeId))
+
+
+     }
+     }
+     package "entity" {
+          class Recipe {
+          - int idRecipe;
+          - String name;
+          - int category;
+          - Map<String,Double> ingredients;
+          - String description;
+          - int duration;
+          - boolean taken;
+
+           + getName()
+           + setName()
+           + getCategory()
+           + setCategory()
+           + getDescription()
+           + setDescription()
+           + getDuration()
+           + setDuration()
+           + isTaken()
+           + setTaken()
+           + String toString ()
+
+          }
+
+          }
+     package "impl" {
+               class RecipeServiceImpl implements RecipeService {
+           + List<Recipe> getAllRecipes()
+           + Recipe getRecipeById(int recipeId)
+           + Recipe addRecipe(Recipe recipe)
+           + Recipe deleteRecipe(Recipe recipe)
+
+               }
+
+               }
+     package "repository" {
+               Interface RecipeRepository extends JpaRepository
+                           }
+
+                    Interface RecipeService {
+                    + {abstract} List<Recipe> getAllRecipes()
+                    + {abstract} Recipe getRecipeById(int userId)
+                    + {abstract} Recipe addRecipe(Recipe recipe)
+                    + {abstract} Recipe deleteRecipe(int recipeId))
+
+                    }
+                                }
+   }
+
+
+
+
+@enduml

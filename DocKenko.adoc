@@ -1,0 +1,144 @@
+= Kenko Application Documentation
+
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+https://youtu.be/XObOk-2Vkcs
+
+== Partie 1 : Synthèse
+
+
+*Titre de projet :* KENKO
+
+*Contexte :*
+
+De nos jours le sujet de la nutrition et de la santé est devenu un des plus sensibles mais surtout des plus importants.
+En effet, les liens entre la nutrition et la santé sont de mieux en mieux connus, et le risque de développer différentes maladies dangereuses suite à une mal alimentation ne fait qu' accroître.
+La nutrition constitue de ce fait un levier pour améliorer le niveau de santé de la population, c’est pour ça qu’on s’est penché sur le sujet et proposons d’aider nos futurs utilisateurs à mieux s’alimenter et ainsi protéger sa santé !
+
+
+*Problématique et gain attendu :*
+
+Le manque d’inspiration, créativité ou de temps sont souvents des facteurs qui nous poussent à mal nous alimenter : fast food, repas déséquilibrés, abstinence de manger…etc
+Avec notre application, nos utilisateurs n’auront plus de soucis, manger correctement en évitant le gaspillage n’a jamais été aussi facile, c’est est une partie de plaisir.
+En fonction des courses à leurs dispositions de leurs morphologies et leurs états de santé  nous leurs proposons une panoplie de recettes équilibrées, mais aussi une analyse complète des aliments consommés en générant un compte rendu avec des conseils sur l’alimentation personnalisés à chaque utilisateur.
+
+
+*Motivation de l'équipe par rapport au sujet :*
+
+Nous avons choisi de travailler sur ce sujet car nous nous sentons tous concernés par ce dernier, en effet étant étudiants et jeunes actifs nous n’arrivons pas la plupart du temps à dégager un moment pour cuisiner ou penser à une nouvelle recette, ainsi nous nous efforçons à manger la même chose, jusqu’à perdre goût de manger, ou alors manger dehors et non seulement mal s’alimenter mais en plus payer cher !
+Nous nous sommes donc engagés à travailler sur cette application afin d'apporter une amélioration  de la qualité de vie de nos futurs utilisateurs à commencer par nous 4 !
+
+*Concurrence :*
+
+La nutrition est un sujet intéressant,prometteur et impactant fortement la
+société, de ce fait il y a eu différents travaux qui ont été réalisés dans ce domaine.
+En effet, différentes applications de nutritions existent actuellement sur le marché, avec des particularités et des fonctionnalités diverses et variées :
+- Yuka : une application qui permet de connaître la composition exacte d’un produit et l’impact de ce dernier sur la santé.
+-Frigo Magic : une application mobile qui génère une liste de recettes en fonction d’une liste d’ingrédients présélectionnée par l’utilisateur.
+-FitMenCook - Healthy Recipes : ce produit propose des recettes visant un public sportif ayant des besoins nutritionnels précis.
+Bien évidemment, il existe beaucoup d’applications traitant du sujet de l’alimentation et nous ne pourrons pas toutes les citer, en revanche ce que nous garantissons c’est qu’avec notre application “KENKO” l’utilisateur pourra se passer de toutes ces applications proposées sur le marché pour la simple et bonne raison que nous proposons à nos utilisateurs de bénéficier de toutes ces fonctionnalités que proposent ces différentes applications mais réunies dans un seul produit et plus encore !
+
+*Prévisions Marketing :*
+
+« Push and Pull » signifie deux stratégies de promotion d’un produit ou d’un service auprès des consommateurs. Une stratégie marketing bonne et efficace doit comporter les deux éléments. L’expression « Push and Pull » décrit très bien sa fonction. C’est-à-dire de pousser (push) votre produit ou votre service vers votre futur client, de se faire valoir ! Et tirer (pull) le client vers un achat lorsqu’il vous cherche.
+Nous allons mettre en place une stratégie promotionnelle « Push » qui consiste à apporter le produit ou le service directement à nos clients dans le but de nous faire connaître
+Notre produit étant inconnu par les utilisateurs nous allons commencer par le pousser vers eux, et ce en utilisant plusieurs méthodes, mais principalement en nous basant sur les réseaux sociaux.
+Comme nous visant un public assez large, les réseaux sociaux présentent une très bonne plateforme promotionnelle pour notre cas : Google Ads ( Display et Youtube ) , Facebook Ads , Instagram Ads , Tiktok Ads..
+Nous prévoyons aussi de conatcter un certain nombre de personnalités publiques/ influenceurs de la nutrition afin qu’il puisse utiliser gratuitement notre application en faisant des retours à leurs abonnés.
+Le premier mois d’utilisation de notre application sera gratuit pour tous les utilisateurs, puis il deviendra payant avec des mensualités ou avec un abonnement annuel qui fera gagner à l’utilisateur un mois gratuit. L'abonnement est sans engagement et donc le client peut décider d’arrêter son abonnement à tout moment.
+Nous avons aussi pour projet de nous rapprocher des professionnels des métiers de la nutrition et des coachs sportifs qui pourront eux aussi proposer à leurs clients d’utiliser l’application KENKO afin de suivre leurs régimes.
+Nous rédigeons également des articles de blogs afin d'expliquer les différentes manières d’utiliser notre produit et d’informer les lecteurs de ses points forts !
+Nous allons créer un cold email accrocheur ( qui ne fait pas penser à un Spam ) une technique intéressante afin d’augmenter notre visibilité auprès de nos prospects, les convertir en clients et les fidéliser.
+Un service client sera joignable par téléphone et par mail tous les jours afin de répondre aux éventuelles questions et régler des soucis rencontrés lors de l’utilisation de l’application.
+Des réductions exclusives  sur les prix des abonnements seront affichées sur notre site directement lors de certaines périodes de l’année : Black Friday, Noël,..
+
+
+.Logo de l'application
+
+
+image::logo_kenko.png[width=300]
+
+
+
+== Partie 2 : Aspects techniques
+
+
+*Type de l’application :* Application WEB
+
+
+*Schéma architectural de l’application :*
+
+image::aspects tecniques.png[width=500]
+
+
+*Plateforme technologique :*  (langages utilisés, frameworks de test, de lien métier/API, métier/persistance)
+
+*Front-end :*
+Langage utilisé : Java Framework : React js
+
+*Back-end :*
+Langage utilisé : Java Framework : Spring Boot
+*Base de donnée :* SQL Serveur
+*Utilisation de JPA Persistance API :*  API Rest
+
+
+
+*Plateforme opérationnelle :* (gestion de versions, build, qualité de code, CI, déploiement)
+
+*Gestion de versions :* Nous utiliserons le logiciel GitHub qui héberge un système de contrôle de gestion Git.
+
+*Outil de build :* Gradle.
+
+*Amélioration de la qualité du code :* Nous appuierons sur Sonar qui est une plateforme Open Source, elle permet de mesurer la qualité du code source en continu en proposant des rapports sur le code dupliqué, les normes de codage, les tests unitaires, la complexité du code, les commentaires, les bugs et les vulnérabilités de sécurité.
+
+*CI/Déploiement :* Circle CI qui est une plateforme d'intégration et de déploiement continus qui automatise le processus de création des builds et des tests unitaires.
+
+
+*Type de l'application :* Application WEB
+
+
+== Partie 3 : Modélisation
+
+*Maquette du front correspondant aux features :*
+* Page principale et page login :
+
+*Diagramme de classes global des features (Partie métier) :*
+Regarder le fichier Kenko.puml
+
+*Description API BACK :*
+Basés sur des principes REST simples, les API endpoints de KENKO WEB API renvoient des métadonnées JSON sur les recettes en fonction des filtres choisis en amont, directement à partir du catalogue de données d'une API distante.
+
+image::rest.png[width=450]
+
+
+KENKO Web API est basée sur les principes REST. Les données sont accessibles via les requêtes standard HTTPS au format UTF-8 vers un endpoint API endpoint. Dans la mesure du possible, l'API Web utilise les verbes HTTP appropriés pour chaque action.
+
+
+*Requests :*
+
+[%header,cols=2*]
+|===
+|Méthode
+|Action
+
+|GET
+|Récupère les ressources
+
+|POST, row 2
+|Crée les ressources
+
+|PUT
+|Modifie et/ou rempacer des ressources
+
+|DELETE
+|Supprime les ressources
+|===
+
+*Reponses:*
+Les réponses de l'API Web comprennent  un objet JSON
+
+
+*Authentification:*
+L'API Web ne  nécéssite pas une authentification (pour le moment et à ce stade des développements)
