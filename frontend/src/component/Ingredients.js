@@ -31,7 +31,6 @@ return (
                    <br></br>
                    <lable>Quantité :    </lable>
                    <input></input>
-                   <br></br>
                    <Button> Ajouter</Button>
                    </div>
                ))}

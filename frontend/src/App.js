@@ -12,7 +12,7 @@ function App() {
         <Route path="/recipe">
           <RecipeComponent />
         </Route>
-        <Route path="/">
+        <Route path="/personnel">
           <Personnel />
         </Route>
         <Route path="/ingredient">
