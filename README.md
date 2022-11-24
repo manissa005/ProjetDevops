@@ -1,4 +1,4 @@
-z![CircleCI](https://img.shields.io/circleci/build/github/manissa005/ProjetDevops/develop)
+![CircleCI](https://img.shields.io/circleci/build/github/manissa005/ProjetDevops/develop)
 [![License](https://img.shields.io/github/license/manissa005/ProjetDevops?label=license)](LICENSE)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/dca43cff57c34f45a2ef85f77c67fe3b)](https://www.codacy.com/gh/manissa005/ProjetDevops/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=manissa005/ProjetDevops&amp;utm_campaign=Badge_Grade)
 [![Release](https://img.shields.io/github/v/release/manissa005/ProjetDevops)](build.gradle)
