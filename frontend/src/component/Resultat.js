@@ -1,7 +1,17 @@
-import { Component } from 'react';
+//import { Component } from 'react';
+//import {useState} from 'react';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 //import {BrowserRouter, Routes, Route} from "react-router-dom";
 //import Alert from 'reactstrap';
-class Resultat extends Component{
+//const state ={
+// String: {}
+//}
+const Resultat = () => {
+//fetch('').then((response)=>{
+//return response.json()})
+//.then((result)=>{
+//this.setState({String: result})
+//console.log(result)
+//})
 }
 export default Resultat;

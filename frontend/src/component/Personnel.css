@@ -1,0 +1,50 @@
+body {
+   background-image: url('img.png');
+}
+.h1-Personnel{
+     text-align: center;
+     font-size: 3rem;
+     color: white
+}
+.Personnel-form {
+     margin: 3rem auto 0;
+     max-width: 50%;
+     max-height: 70%;
+     padding: 0rem 2 rem 0.8rem;
+     background-color: rgba(255, 255, 255, 0.753);
+     text-align: center;
+}
+.form-content{
+     display: flex;
+     flex-direction: column;
+     padding: 1rem;
+}
+.input-Personnel{
+     border-radius: 2rem;
+     border: none;
+     margin-bottom: 1rem;
+}
+.label-Personnel {
+     font-weight: bold;
+     margin-bottom:0.3rem;
+}
+.select-Personnel, .message-Personnel{
+     border-radius: 1rem;
+     border:none;
+     text-align: center;
+     margin-botton: 1rem;
+}
+.button-Personnel{
+     border-radius: 1rem;
+     border:none;
+     cursor: pointer;
+     margin: 1rem 3rem 0.3rem;
+}
+.button1-Personnel{
+     border-radius: 1rem;
+     border:none;
+     cursor: pointer;
+     background-color: red;
+     margin: 1rem 3rem 0.3rem;
+
+}
