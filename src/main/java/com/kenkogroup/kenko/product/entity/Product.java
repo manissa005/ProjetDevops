@@ -1,11 +1,14 @@
 package com.kenkogroup.kenko.product.entity;
 
-import lombok.Generated;
+import com.kenkogroup.kenko.category.entity.Category;
+import com.kenkogroup.kenko.category.entity.Meat;
+import com.kenkogroup.kenko.category.entity.Other;
+import com.kenkogroup.kenko.category.entity.Vegetable;
 import lombok.ToString;
 
 import javax.persistence.*;
 
-@Entity
+//@Entity
 @Table (name="Product")
 @ToString
 public class Product {
@@ -17,7 +20,13 @@ public class Product {
     @Column(name="name",nullable = false)
     String name;
     @Column(name="category", nullable = false)
-    String category;
+    Category category;
+
+    public Product(int id, String name, Category category) {
+        this.id=id;
+        this.name=name;
+        this.category=category;
+    }
 
 
     public int getId() {
@@ -36,12 +45,8 @@ public class Product {
         this.name = name;
     }
 
-
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
 }

@@ -30,7 +30,6 @@ public class AnalyseDietetique {
                 } else {
                     results.add(elem.getValue().getCategory().getVegetable().analyse(elem.getKey()));
                 }
-
             }
         }
         return results;
