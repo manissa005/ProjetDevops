@@ -47,7 +47,7 @@ rows="10"
 nanme="description"
 onChange={(e) => setDescription(e.target.value)}>
 </textarea>
-<button className="button-Personnel" type="Submit" value="Ajouter les ingrédients"><Link to= "/ingredient"> Ajouter les ingrédients </Link>
+<button className="button-Personnel" type="Submit" value="Ajouter les ingrédients"><Link to= "/Ingredients"> Ajouter les ingrédients </Link>
 </button>
 <button className="button1-Personnel" type="Submit" value="Ajouter la recette"> Ajouter la recette
 </button>
