@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.fridge.entity;
+/*package com.kenkogroup.kenko.fridge.entity;
 import lombok.*;
 import javax.persistence.*;
 import java.util.Map;
@@ -46,3 +46,4 @@ public class Fridge {
 
 }
 
+*/

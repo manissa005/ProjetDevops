@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.user.repository;
+/*package com.kenkogroup.kenko.user.repository;
 
 import com.kenkogroup.kenko.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -19,3 +19,4 @@ public interface UserRepository extends JpaRepository<User,Integer>{
     List<User> findByWeight(float size);
 
 }
+*/

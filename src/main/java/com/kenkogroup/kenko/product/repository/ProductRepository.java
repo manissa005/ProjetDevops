@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.product.repository;
+/*package com.kenkogroup.kenko.product.repository;
 
 import com.kenkogroup.kenko.product.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,3 +9,4 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     void deleteByName(String name);
 }
+*/

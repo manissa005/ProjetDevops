@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.fridge.service;
+/*package com.kenkogroup.kenko.fridge.service;
 
 
 import com.kenkogroup.kenko.fridge.entity.Fridge;
@@ -28,9 +28,9 @@ public class FridgeService {
         return repository.findById(id).orElse(null);
     }
 
-    /*public Fridge getFridgeByUserId(int user_id){
-        return repository.findById(user_id).orElse(null);
-    }*/
+    //public Fridge getFridgeByUserId(int user_id){
+        //return repository.findById(user_id).orElse(null);
+    //}
     public String deleteFridge(int id){
         repository.deleteById(id);
         return "Fridge removed !!" +id;
@@ -46,3 +46,4 @@ public class FridgeService {
          }
 
 }
+*/

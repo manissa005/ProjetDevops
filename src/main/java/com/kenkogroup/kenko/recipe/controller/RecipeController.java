@@ -16,8 +16,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kenkogroup.kenko.recipe.entity.edamam.Example;
 import com.kenkogroup.kenko.recipe.entity.edamam.Hit;
 import com.kenkogroup.kenko.recipe.entity.edamam.RecipeEdamam;
-import com.kenkogroup.kenko.recipe.entity.Recipe;
-import com.kenkogroup.kenko.recipe.service.RecipeService;
+//import com.kenkogroup.kenko.recipe.entity.Recipe;
+//import com.kenkogroup.kenko.recipe.service.RecipeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -63,7 +63,7 @@ public class RecipeController {
 
 	}
 
-
+/*
 	@Autowired
 	private RecipeService recipeService;
 	
@@ -131,4 +131,6 @@ public class RecipeController {
 		
 		return new ResponseEntity<Recipe>(recipe, HttpStatus.OK);
 	}
+	*/
+
 }

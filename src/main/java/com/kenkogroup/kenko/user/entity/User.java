@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.user.entity;
+/*package com.kenkogroup.kenko.user.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -197,3 +197,4 @@ public class User implements Serializable {
         }
     }
 }
+*/

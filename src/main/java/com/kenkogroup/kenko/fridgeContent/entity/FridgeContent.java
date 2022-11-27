@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.fridgeContent.entity;
+/*package com.kenkogroup.kenko.fridgeContent.entity;
 
 import lombok.ToString;
 
@@ -62,3 +62,4 @@ public class FridgeContent {
     }
 
 }
+*/

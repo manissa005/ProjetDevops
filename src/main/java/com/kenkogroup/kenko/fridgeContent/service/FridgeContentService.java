@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.fridgeContent.service;
+/*package com.kenkogroup.kenko.fridgeContent.service;
 
 
 import com.kenkogroup.kenko.fridgeContent.entity.FridgeContent;
@@ -43,3 +43,4 @@ public class FridgeContentService {
         return repository.save(existingFridgeContent);
     }
 }
+*/

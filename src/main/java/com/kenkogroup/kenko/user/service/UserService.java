@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.user.service;
+/*package com.kenkogroup.kenko.user.service;
 
 import com.kenkogroup.kenko.user.entity.User;
 import com.kenkogroup.kenko.user.exception.UserNullException;
@@ -105,4 +105,4 @@ public class UserService {
         return repository.save(recipe,id);
     }*/
 
-}
+//}

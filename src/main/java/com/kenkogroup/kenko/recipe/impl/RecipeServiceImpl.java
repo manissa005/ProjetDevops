@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.recipe.impl;
+/*package com.kenkogroup.kenko.recipe.impl;
 
 import java.util.List;
 
@@ -57,3 +57,4 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 }
+*/
