@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.recipe.entity;
+/*package com.kenkogroup.kenko.recipe.entity;
 
 import java.util.Map;
 
@@ -108,3 +108,4 @@ public class Recipe {
 	
 
 }
+*/

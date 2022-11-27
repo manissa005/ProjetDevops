@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.product.service;
+/*package com.kenkogroup.kenko.product.service;
 
 import com.kenkogroup.kenko.product.entity.Product;
 import com.kenkogroup.kenko.product.repository.ProductRepository;
@@ -39,3 +39,4 @@ public class ProductService {
     }
 }
 
+*/

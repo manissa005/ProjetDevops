@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.fridgeContent.controller;
+/*package com.kenkogroup.kenko.fridgeContent.controller;
 import com.kenkogroup.kenko.fridgeContent.entity.FridgeContent;
 import com.kenkogroup.kenko.fridgeContent.service.FridgeContentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,3 +42,4 @@ public class FridgeContentController {
         return service.deleteFridgeContent(fridgeContentId);
     }
 }
+*/

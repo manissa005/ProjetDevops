@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.fridge.controller;
+/*package com.kenkogroup.kenko.fridge.controller;
 
 import com.kenkogroup.kenko.fridge.entity.Fridge;
 import com.kenkogroup.kenko.fridge.service.FridgeService;
@@ -47,3 +47,4 @@ public class FridgeController {
 
 
 }
+*/

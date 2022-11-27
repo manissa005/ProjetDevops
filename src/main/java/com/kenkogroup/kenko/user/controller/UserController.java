@@ -1,4 +1,4 @@
-package com.kenkogroup.kenko.user.controller;
+/*package com.kenkogroup.kenko.user.controller;
 
 import com.kenkogroup.kenko.user.entity.User;
 import com.kenkogroup.kenko.user.exception.UserNullException;
@@ -98,4 +98,4 @@ public class UserController {
     public User addPersonalizedRecipe(@RequestBody Recipe recipe,@PathVariable int id){
         return service.saveRecipe(Recipe,id);
     }*/
-}
+//}
