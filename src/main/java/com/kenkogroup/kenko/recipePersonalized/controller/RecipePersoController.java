@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/recipePersonalized")
 public class RecipePersoController {
 @Autowired
@@ -32,9 +33,11 @@ public class RecipePersoController {
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/analyse")
     public List<String> analyseRecipe(@RequestBody RecipePersonalized recipePerso) {
+        //RecipePersonalized recipeModifie = {[recipePerso]id,};
         System.out.print("recette a analyser: " + recipePerso);
         List<String> results = recipePersoService.analyseRecipePerso(recipePerso);
         recipePersoService.getAnalyse().afficheAnalyse(results);
         return results;
     }
+
 }
