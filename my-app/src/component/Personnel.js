@@ -3,16 +3,23 @@ import React from 'react';
 import './Personnel.css'
 //import 'bootstrap/dist/css/bootstrap.min.css';
 //import Button from 'react-bootstrap/Button';
-import {Link} from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
+import Ingredients from "./Ingredients";
 //import Ingredients from './component/Ingredients';
 const Personnel = () => {
-const[titre, setTitre] = useState(null);
-const[durée, setDurée] = useState(null);
+const[name, setName] = useState(null);
+const[duration, setDuration] = useState(null);
+//const[id,setId] = useState(null);
+//const[category, setCategory] = useState(null);
+    const id = 0;
+    const category = 1;
 const[description, setDescription] = useState(null);
 const values = {
-titre,
-durée,
-description
+    id,
+    name,
+    category,
+    duration,
+    description
 };
 console.log(values);
 return (
@@ -27,7 +34,7 @@ type="text"
 id="titre"
 nanme="titre"
 placeholder="Titre"
-onChange={(e) => setTitre(e.target.value)}
+onChange={(e) => setName(e.target.value)}
 />
 <label htmlFor="durée" className="label-personnel"> Durée de la recette: </label>
 <input
@@ -36,7 +43,7 @@ type="number"
 id="durée"
 nanme="durée"
 placeholder="min"
-onChange={(e) => setDurée(e.target.value)}
+onChange={(e) => setDuration(e.target.value)}
 />
 <label htmlFor="description" className="label-personnel"> Description de la recette: </label>
 <textarea
@@ -47,13 +54,12 @@ rows="10"
 nanme="description"
 onChange={(e) => setDescription(e.target.value)}>
 </textarea>
-<button className="button-Personnel" type="Submit" value="Ajouter les ingrédients"><Link to= "/Ingredients"> Ajouter les ingrédients </Link>
-</button>
+    <Link to = "/Ingredients" state = {{data : values}} className="link"> Ajouter ingredients </Link>
 <button className="button1-Personnel" type="Submit" value="Ajouter la recette"> Ajouter la recette
 </button>
 </div>
 </form>
-      </div>
+</div>
 
 )
 }
