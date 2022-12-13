@@ -74,6 +74,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import SearchRecipeByNumberAndDuration from '../services/SearchRecipeByNumberAndDuration';
+import './forms.css';
 
 class RecipeComponent extends Component {
     constructor(props) {
@@ -92,7 +93,7 @@ class RecipeComponent extends Component {
             <div>
                 <form>
                     <label>Ingredients</label>
-                    <input type="text" placeholder="search" name="search" onChange={async (event) => {
+                    <input type="text" placeholder="Search.." name="search" onChange={async (event) => {
                         const value = event.target.value;
                         this.setState({ resultRecipe: value });
                     }} />

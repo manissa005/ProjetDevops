@@ -4,6 +4,7 @@ import Ingredients from './component/Ingredients';
 import Personnel from './component/Personnel';
 import Resultat from './component/Resultat';
 import RecipeComponent from './component/RecipeComponent'
+import RecommendedRecipeComponent from "./component/RecommendedRecipeComponent";
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
      <Route path='/Ingredients' element={<Ingredients/>}/>
      <Route path='/Resultat' element={<Resultat/>}/>
      <Route path='/RecipeComponent' element={<RecipeComponent/>}/>
+     <Route path='/recommended' element={<RecommendedRecipeComponent/>}/>
      </Routes>
      </BrowserRouter>
     </div>
