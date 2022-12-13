@@ -113,7 +113,7 @@ public class RecipeController {
 
 		HttpRequest request = HttpRequest.newBuilder()
 				.uri(URI.create(url))
-				.header("Accept"d"/")
+				.header("Accept", "/")
 				.header("Accept-Encoding", "deflate, br")
 				.method("GET", HttpRequest.BodyPublishers.noBody())
 				.build();
