@@ -25,6 +25,7 @@ import {useLocation} from "react-router-dom";
         },
         body: JSON.stringify(val)
     });
+
         const result = response.json();
         console.log("lejson de reponse", result);
         return result;
