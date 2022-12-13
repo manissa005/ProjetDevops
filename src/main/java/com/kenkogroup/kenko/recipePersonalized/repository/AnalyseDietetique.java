@@ -2,6 +2,7 @@ package com.kenkogroup.kenko.recipePersonalized.repository;
 import com.kenkogroup.kenko.category.entity.Meat;
 import com.kenkogroup.kenko.category.entity.Other;
 import com.kenkogroup.kenko.category.entity.Vegetable;
+import com.kenkogroup.kenko.ingredient.Ingredient;
 import com.kenkogroup.kenko.product.entity.Product;
 import com.kenkogroup.kenko.recipePersonalized.entity.RecipePersonalized;
 import org.springframework.stereotype.Repository;
@@ -12,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.kenkogroup.kenko.category.entity.Other.BREAD;
 import static com.kenkogroup.kenko.category.entity.Other.EGG;
 
 @Service
@@ -19,16 +21,19 @@ public class AnalyseDietetique {
 
     public List<String> analyseIngredients(RecipePersonalized recipe){
         List<String> results = new ArrayList<>();
-        Map<Double,Product> ingredients = recipe.getIngredients();
-        for (Map.Entry<Double,Product> elem : ingredients.entrySet()){
-            if(elem.getValue().getCategory().isOther()){
-                results.add(elem.getValue().getCategory().getOther().analyse(elem.getKey()));
+        List<Ingredient> ingredients = recipe.getIngredients();
+        for (Ingredient elem : ingredients){
+            if(elem.getProduct().getCategory().isOther()){
+                results.add(elem.getProduct().getCategory().getOther().analyse(elem.getQuantity()));
+                System.out.println("other ajoute");
             }
             else {
-                if (elem.getValue().getCategory().isMeat()) {
-                    results.add(elem.getValue().getCategory().getMeat().analyse(elem.getKey()));
+                if (elem.getProduct().getCategory().isMeat()) {
+                    results.add(elem.getProduct().getCategory().getMeat().analyse(elem.getQuantity()));
+                    System.out.println("viande ajoute");
                 } else {
-                    results.add(elem.getValue().getCategory().getVegetable().analyse(elem.getKey()));
+                    results.add(elem.getProduct().getCategory().getVegetable().analyse(elem.getQuantity()));
+                    System.out.println("legume ajoute");
                 }
             }
         }
@@ -37,11 +42,11 @@ public class AnalyseDietetique {
 
     public String analyseQuantiteProteine(RecipePersonalized recipe) {
         String result = "";
-        Map<Double,Product> ingredients = recipe.getIngredients();
+        List<Ingredient> ingredients = recipe.getIngredients();
         List<Product> proteines = new ArrayList<>();
-        for (Map.Entry<Double,Product> elem : ingredients.entrySet()) {
-            if ((elem.getValue().getCategory().isMeat())) {proteines.add(elem.getValue());}
-            if ((elem.getValue().getCategory().isOther())&&(elem.getValue().getCategory().getOther()==EGG)) proteines.add(elem.getValue());
+        for (Ingredient elem : ingredients) {
+            if ((elem.getProduct().getCategory().isMeat())) {proteines.add(elem.getProduct());}
+            if ((elem.getProduct().getCategory().isOther())&&(elem.getProduct().getCategory().getOther()==EGG)) proteines.add(elem.getProduct());
         }
         if (proteines.size()>=2) {
             result = "La quantité recommandée de Proteines est dépassée : on ne peut pas avoir ";
@@ -56,9 +61,9 @@ public class AnalyseDietetique {
     public  String analyseQuantiteLegumes(RecipePersonalized recipe){
         String result  ="";
         Double quantite=0.0;
-        Map<Double,Product> ingredients = recipe.getIngredients();
-        for (Map.Entry<Double,Product> elem : ingredients.entrySet()) {
-            if (elem.getValue().getCategory().isVegetable()) quantite+=elem.getKey();
+        List<Ingredient> ingredients = recipe.getIngredients();
+        for (Ingredient elem : ingredients) {
+            if (elem.getProduct().getCategory().isVegetable()) quantite+=elem.getQuantity();
         }
         if(quantite==0.0) result = "Il n y a aucun légumes dans votre recette : une portion d'au moins 150 grammes de légumes est recommandés";
         else if(quantite<150.0) result = "La quantité de légumes dans votre recette est très basse : une portion d'au moins 150 grammes de légumes est recommandés";
@@ -67,10 +72,80 @@ public class AnalyseDietetique {
 
     public List<String> analyseRecipe(RecipePersonalized recipe){
         List<String> results = new ArrayList<>();
+        results.addAll(analyseIngredients(recipe));
         results.add(analyseQuantiteLegumes(recipe));
         results.add(analyseQuantiteProteine(recipe));
-        results.addAll(analyseIngredients(recipe));
 
+        return results;
+    }
+
+    public Double calculProteines(List<RecipePersonalized> recipes){
+        Double quantity = 0.0;
+        for (RecipePersonalized recipe : recipes){
+            List<Ingredient> ingredients = recipe.getIngredients();
+            for (Ingredient elem : ingredients) {
+                if ((elem.getProduct().getCategory().isMeat()) || ((elem.getProduct().getCategory().isOther())&&(elem.getProduct().getCategory().getOther()==EGG)))
+                    quantity+=elem.getQuantity();
+            }
+        }
+        return quantity;
+    }
+    public String analyseProteine(List<RecipePersonalized> recipes){
+        String result = "";
+        Double quantity = 0.0;
+        quantity = calculProteines(recipes);
+        if(quantity == 0.0) result = "Il y a 0 proteines dans vos repas, une quantité d'environ 200g d'aliments contenant des proteines est recommandée ";
+        else if (quantity>250.0) result = "La quantité recommandée de Proteines est dépassée";
+            else if (quantity>0.0 && quantity <100.0) result = "La quantité d'aliments contenant des proteines est très basse";
+        return result;
+    }
+
+    public Double calculFruitsLegumes(List<RecipePersonalized> recipes){
+        Double quantity = 0.0;
+        for (RecipePersonalized recipe : recipes){
+            List<Ingredient> ingredients = recipe.getIngredients();
+            for (Ingredient elem : ingredients) {
+                if (elem.getProduct().getCategory().isVegetable())
+                    quantity+=elem.getQuantity();
+            }
+        }
+        return quantity;
+    }
+    public String analyseFruitsLegumes(List<RecipePersonalized> recipes){
+        String result = "";
+        Double quantity = 0.0;
+        quantity= calculFruitsLegumes(recipes);
+        if(quantity == 0.0) result = "Il y a 0 fruits et legumes dans vos repas, une quantité d'environ 400g a 500G de fruits et legumes est recommandée ";
+        else if (quantity <400.0) result = "La quantité de fruits et legumes est très basse, une quantité d'environ 400g a 500G de fruits et legumes est recommandée";
+        return result;
+    }
+
+    public Double calculFeculents(List<RecipePersonalized> recipes){
+        Double quantity = 0.0;
+        for (RecipePersonalized recipe : recipes){
+            List<Ingredient> ingredients = recipe.getIngredients();
+            for (Ingredient elem : ingredients) {
+                if ((elem.getProduct().getCategory().isOther()) && elem.getProduct().getCategory().getOther() == BREAD)
+                    quantity+=elem.getQuantity();
+            }
+        }
+        return quantity;
+    }
+
+    public String analyseFeculents(List<RecipePersonalized> recipes){
+        String result = "";
+        Double quantity = 0.0;
+        quantity= calculFeculents(recipes);
+        if(quantity == 0.0) result = "Il y a 0 féculents dans vos repas, une quantité d'environ 500g a 600g de féculents est recommandée ";
+        else if (quantity <300.0) result = "La quantité de féculents est très basse, une quantité d'environ 500g a 600g de feculents est recommandée";
+            else if (quantity>700.0) result = "La quantité recommandée de Proteines est dépassée";
+        return result;
+    }
+    public List<String> analyseRecipes(List<RecipePersonalized> recipes){
+        List<String> results = new ArrayList<>();
+        results.add(analyseProteine(recipes));
+        results.add(analyseFruitsLegumes(recipes));
+        results.add(analyseFeculents(recipes));
         return results;
     }
     public void afficheAnalyse(List<String> results){
@@ -79,7 +154,6 @@ public class AnalyseDietetique {
             if (s!="") System.out.println(s);
         }
     }
-
     public static void main(String [] args){
         //liste des produits
      /*   Product p1 = new Product(1,"tomate",Vegetable.TOMATO);

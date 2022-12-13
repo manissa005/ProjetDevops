@@ -11,15 +11,17 @@ const[name, setName] = useState(null);
 const[duration, setDuration] = useState(null);
 //const[id,setId] = useState(null);
 //const[category, setCategory] = useState(null);
-    const id = 0;
+    const idRecipe = 0;
     const category = 1;
+    const taken = false
 const[description, setDescription] = useState(null);
 const values = {
-    id,
+    idRecipe,
     name,
     category,
     duration,
-    description
+    description,
+    taken
 };
 console.log(values);
 return (
@@ -60,7 +62,6 @@ onChange={(e) => setDescription(e.target.value)}>
 </div>
 </form>
 </div>
-
 )
 }
 

@@ -1,6 +1,8 @@
 package com.kenkogroup.kenko.recipePersonalized.entity;
+import com.kenkogroup.kenko.ingredient.Ingredient;
 import com.kenkogroup.kenko.product.entity.Product;
 
+import java.util.List;
 import java.util.Map;
 
 public class RecipePersonalized {
@@ -8,7 +10,7 @@ public class RecipePersonalized {
     private int idRecipe;
     private String name;
     private int category;
-    private Map<Double,Product> ingredients;
+    private List<Ingredient> ingredients;
     private String description;
     private int duration;
     private boolean taken;
@@ -16,7 +18,7 @@ public class RecipePersonalized {
     public RecipePersonalized() {
     }
 
-    public RecipePersonalized(String name, int category, Map<Double,Product> ingredients, String description, int duration, boolean taken ) {
+    public RecipePersonalized(String name, int category, List<Ingredient> ingredients, String description, int duration, boolean taken ) {
         this.name = name;
         this.category = category;
         this.ingredients=ingredients;
@@ -49,11 +51,11 @@ public class RecipePersonalized {
         this.category = category;
     }
 
-    public Map<Double,Product> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(Map<Double,Product> ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 

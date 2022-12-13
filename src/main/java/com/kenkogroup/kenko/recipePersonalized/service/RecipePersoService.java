@@ -41,4 +41,8 @@ public class RecipePersoService {
     public List <String> analyseRecipePerso(RecipePersonalized recipePerso){
         return analyse.analyseRecipe(recipePerso);
     }
+
+    public List<String> analyseRecipes(List<RecipePersonalized> recipes){
+        return analyse.analyseRecipes(recipes);
+    }
 }

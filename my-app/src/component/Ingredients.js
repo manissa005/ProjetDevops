@@ -26,9 +26,11 @@ const Ingredients = (props) =>{
     console.log(location, "useLocation Hook");
     const data = location.state?.data;
 
-const[quantite, setQuantite] = useState(null);
+
+const[quantity, setQuantity] = useState(null);
 const[name, setName] = useState(null);
 const[id, setId] = useState(null);
+const[taken, setTaken] = useState(null);
 const[category,setCategory ] = useState(null);
 const[vegetable,setVegetable ] = useState(null);
 const[meat,setMeat ] = useState(null);
@@ -42,19 +44,32 @@ const onClickIngredient =  (p) =>
     setMeat(p.meat);
     setOther(p.other);
     setCategory(p.category);
-    setIngredients(oldIngredients => [...oldIngredients,{ "quantite":quantite, "ingredient":{"id" :id, "name" : name, "category" : category}}]);
+
+    //setIngredients(oldIngredients => [...oldIngredients,{ "quantity":quantity, "ingredient":{"id" :id, "name" : name, "category" : category}}]);
     console.log(ingredients);
 }
+
+    function arrayToList(array) {
+        let list = null;
+        for (let i = array.length - 1; i >= 0; i--) {
+            list = { value: array[i]};
+        }
+        return list;
+    }
+
 /*let map = [];
 ingredients.map((ingr) =>{
     map = [...map,{ingr[1],{ingr.ingredient.id}}]
 });*/
+  
+    const new_ingredients = arrayToList(ingredients);
     const values = {
-        id : data.id,
+        idRecipe : data.id,
         name : data.name,
         category : data.category,
         duration : data.duration,
         description : data.description,
+        taken : data.taken,
         ingredients,
     };
 
@@ -71,15 +86,15 @@ return (
                             <label htmlFor="quantite" className="label-quantite">Quantité :    </label>
                             <input className="input-Ingredients"
                                    type="number"
-                                   id="quantite"
-                                   nanme="quantite"
+                                   id="quantity"
+                                   nanme="quantity"
                                    placeholder="number"
-                                   onChange={(e) => setQuantite(e.target.value)}>
+                                   onChange={(e) => setQuantity(e.target.value)}>
                             </input>
                             <br></br>
                   <button classeName="button-Ingredients" type="Submit" value="Ajouter"
                   onClick = {() => {
-                      setIngredients(oldIngredients => [...oldIngredients,{ "quantite":quantite, "ingredient":{"id" :product.id, "name" : product.name, "category" : {"vegetable" : product.category.vegetable, "meat" : product.category.meat, "other" : product.category.other}}}]);
+                      setIngredients(oldIngredients => [...oldIngredients, {"product" : {"id" :product.id, "name" : product.name, "category" : {"vegetable" : product.category.vegetable, "meat" : product.category.meat, "other" : product.category.other}},"quantity" : quantity }]);
                       console.log(ingredients);
                   }}> Ajouter</button>
                   </div>
@@ -87,7 +102,9 @@ return (
                   ))}
                   </div>
                 <div>
-                    <Link to ="/Resultat" state = {{data : values}} className={"link"}> Confirmer  </Link>
+                    <Link to ="/Resultat" state = {{data : values}} className={"link"}> Analyser la recette </Link>
+                    <Link to ="/ResultatRecettes" className={"link"}> Analyser les recettes </Link>
+
                 </div>
         </div>
     </div>
