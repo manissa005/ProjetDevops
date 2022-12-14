@@ -43,6 +43,11 @@ public class RecipePersoController {
         recipes.add(recipePerso);
         return results;
     }
+    @GetMapping("/getRecipes")
+    public List<RecipePersonalized> getRecipes(){
+
+        return recipes;
+    }
     @GetMapping("/analyseRecipes")
     public List<String> analyseRecipes(){
         List<String> results;

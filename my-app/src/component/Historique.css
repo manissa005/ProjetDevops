@@ -1,0 +1,19 @@
+.titre2{
+     text-align: center;
+     font-size: 3rem;
+     color: white
+}
+.container2 {
+     margin: 3rem auto 0;
+     max-width: 50%;
+     max-height: 70%;
+     padding: 0rem 2 rem 0.8rem;
+     background-color: rgba(255, 255, 255, 0.753);
+     text-align: center;
+     border-right-width: thick;
+}
+.nameIngredient{
+text-align: center;
+     font-size: 1rem;
+     color: black
+}
