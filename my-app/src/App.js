@@ -1,19 +1,19 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Ingredients from './component/Ingredients';
-import Personnel from './component/Personnel';
+import ResultatListeRecettes from './component/ResultatListeRecettes';
 import Resultat from './component/Resultat';
-import RecipeComponent from './component/RecipeComponent'
-import ResultatRecettes from "./component/ResultatRecettes";
+import RecipeComponent from './component/RecipeComponent';
+import AjoutRecettes from './component/AjoutRecettes';
+import Historique from './component/Historique';
 function App() {
   return (
     <div className="App">
      <BrowserRouter>
      <Routes>
-     <Route path='/personnel' element={<Personnel/>}/>
-     <Route path='/Ingredients' element={<Ingredients/>}/>
+         <Route path='Historique' element={<Historique/>}/>
+         <Route path='/AjoutRecettes' element={<AjoutRecettes/>}/>
      <Route path='/Resultat' element={<Resultat/>}/>
-         <Route path = '/ResultatRecettes' element = {<ResultatRecettes/>}/>
+         <Route path = '/ResultatListeRecettes' element = {<ResultatListeRecettes/>}/>
      <Route path='/RecipeComponent' element={<RecipeComponent/>}/>
      </Routes>
      </BrowserRouter>
