@@ -8,6 +8,7 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import javax.management.AttributeNotFoundException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -88,7 +89,6 @@ public class RecipeController {
 			recettes.add(hit.getRecipe());
 		}
 		return recettes;
-
 	}
 
 	@GetMapping("/{age}/{weight}/{tall}/{sexe}/{mealType}")
@@ -104,12 +104,15 @@ public class RecipeController {
 		if(sexe.equals("Homme"))
 			calories += 5;
 		else { calories -= 161; }
-		List<String> ingredients = Arrays.asList("tomato", "onion","strawberry");
+		List<String> ingredients = Arrays.asList("tomato", "onion","strawberry","Carrot","Garlic",
+				"Potato","Orange","Kiwi","Blackberries","Apple","Milk","Butter","Cheese","meat","Beef","Chicken","Fish");
 		Random random = new Random();
-		String url = "https://api.edamam.com/search?q=tomato"/*+ingredients.get(random.nextInt(4))*/
+		System.out.println("Calories : " + calories);
+		System.out.println("Calories : " + calories.intValue());
+		System.out.println("Calories : " + calories.intValue());
+		String url = "https://api.edamam.com/search?q="+ingredients.get(random.nextInt(ingredients.size()+1))
 				+"&app_id=656be70f&app_key=036042af3e99ebf91c95f241611890b9&from=0&to=1&calories="
-				+calories+"&time=10&mealType="+mealType;
-
+				+calories.intValue()+"-"+calories.intValue()+300+"&mealType="+mealType;
 		HttpRequest request = HttpRequest.newBuilder()
 				.uri(URI.create(url))
 				.header("Accept", "/")
@@ -131,10 +134,11 @@ public class RecipeController {
 		List<RecipeEdamam> recettes = new ArrayList<>();
 
 		for (Hit hit : hitList) {
+			if(hit.getRecipe().getCalories()>2000)
+				hit.getRecipe().setCalories(hit.getRecipe().getCalories()/3);
 			recettes.add(hit.getRecipe());
 		}
 		return recettes;
-
 	}
 
 /*

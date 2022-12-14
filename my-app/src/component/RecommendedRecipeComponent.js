@@ -15,7 +15,8 @@ class RecommendedRecipeComponent extends Component {
             tall: 1,
             sexe: "",
             checked:"",
-            mealType:""
+            mealType:"",
+            calories:""
         }
     }
 
@@ -107,6 +108,7 @@ class RecommendedRecipeComponent extends Component {
                                     {s.ingredientLines.map(line =>
                                         <ListGroup.Item><li>{line}</li></ListGroup.Item>
                                     )}
+                                   
 
                                     <ListGroup.Item><b>Durée</b></ListGroup.Item>
                                     <ListGroup.Item>{s.totalTime}minutes</ListGroup.Item>

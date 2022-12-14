@@ -3,6 +3,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import ResultatListeRecettes from './component/ResultatListeRecettes';
 import Resultat from './component/Resultat';
 import RecipeComponent from './component/RecipeComponent';
+import RecommendedRecipeComponent from './component/RecommendedRecipeComponent';
 import AjoutRecettes from './component/AjoutRecettes';
 import Historique from './component/Historique';
 function App() {
