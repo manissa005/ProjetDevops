@@ -93,6 +93,7 @@ class RecipeComponent extends Component {
                 <form>
                     <label>Ingredients</label>
                     <input type="text" placeholder="search" name="search" onChange={async (event) => {
+
                         const value = event.target.value;
                         this.setState({ resultRecipe: value });
                     }} />

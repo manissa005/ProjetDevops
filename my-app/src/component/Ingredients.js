@@ -26,6 +26,7 @@ const Ingredients = (props) =>{
     console.log(location, "useLocation Hook");
     const data = location.state?.data;
 
+
 const[quantity, setQuantity] = useState(null);
 const[name, setName] = useState(null);
 const[id, setId] = useState(null);
@@ -35,7 +36,6 @@ const[vegetable,setVegetable ] = useState(null);
 const[meat,setMeat ] = useState(null);
 const[other,setOther ] = useState(null);
 const [ingredients, setIngredients] = useState([]);
-
 const onClickIngredient =  (p) =>
 {
     setId(p.id);
@@ -44,6 +44,7 @@ const onClickIngredient =  (p) =>
     setMeat(p.meat);
     setOther(p.other);
     setCategory(p.category);
+
     //setIngredients(oldIngredients => [...oldIngredients,{ "quantity":quantity, "ingredient":{"id" :id, "name" : name, "category" : category}}]);
     console.log(ingredients);
 }
@@ -55,10 +56,12 @@ const onClickIngredient =  (p) =>
         }
         return list;
     }
+
 /*let map = [];
 ingredients.map((ingr) =>{
     map = [...map,{ingr[1],{ingr.ingredient.id}}]
 });*/
+  
     const new_ingredients = arrayToList(ingredients);
     const values = {
         idRecipe : data.id,
@@ -101,6 +104,7 @@ return (
                 <div>
                     <Link to ="/Resultat" state = {{data : values}} className={"link"}> Analyser la recette </Link>
                     <Link to ="/ResultatRecettes" className={"link"}> Analyser les recettes </Link>
+
                 </div>
         </div>
     </div>

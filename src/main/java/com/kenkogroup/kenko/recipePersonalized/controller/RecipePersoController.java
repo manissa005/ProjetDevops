@@ -36,6 +36,7 @@ public class RecipePersoController {
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/analyse")
     public List<String> analyseRecipe(@RequestBody RecipePersonalized recipePerso) {
+        //RecipePersonalized recipeModifie = {[recipePerso]id,};
         System.out.print("recette a analyser: " + recipePerso);
         List<String> results = recipePersoService.analyseRecipePerso(recipePerso);
         recipePersoService.getAnalyse().afficheAnalyse(results);
@@ -58,4 +59,5 @@ public class RecipePersoController {
         //recipePersoService.getAnalyse().afficheAnalyse(results);
         return results;
     }
+
 }
