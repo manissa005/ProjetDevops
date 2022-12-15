@@ -1,4 +1,5 @@
 package com.kenkogroup.kenko.recipePersonalized.controller;
+import com.kenkogroup.kenko.Quantity.QuantityCat;
 import com.kenkogroup.kenko.recipePersonalized.entity.RecipePersonalized;
 import com.kenkogroup.kenko.recipePersonalized.service.RecipePersoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,6 @@ public class RecipePersoController {
     private List<RecipePersonalized> recipes = new ArrayList<>();
     @Autowired
     private RecipePersoService recipePersoService;
-
     @PostMapping("/add")
     public void addRecipe(@RequestBody RecipePersonalized recipePerso) {
         System.out.print("recette perso recupere : " + recipePerso);
@@ -36,16 +36,31 @@ public class RecipePersoController {
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/analyse")
     public List<String> analyseRecipe(@RequestBody RecipePersonalized recipePerso) {
-        //RecipePersonalized recipeModifie = {[recipePerso]id,};
         System.out.print("recette a analyser: " + recipePerso);
-        List<String> results = recipePersoService.analyseRecipePerso(recipePerso);
-        recipePersoService.getAnalyse().afficheAnalyse(results);
+        List<String> results = conversion(recipePersoService.analyseRecipePerso(recipePerso));
+        if(recipePersoService.getAnalyse().quantityTotalRecipe(recipePerso)<250.0){
+            results.add("Quantité Totale insuffisante  ");
+        }else{
+            if(recipePersoService.getAnalyse().quantityTotalRecipe(recipePerso)>650.0){
+                results.add("Quantité Totale très grande");
+            }
+                else results.addAll(recipePersoService.recommandationRecipe(recipePersoService.analyseRecipePerso(recipePerso)));
+        }
         recipes.add(recipePerso);
+        return results;
+    }
+    /*
+        Conversion liste de quantityCat en liste de string
+     */
+    public List<String> conversion(List<QuantityCat> list){
+        List<String> results = new ArrayList<>();
+        for (QuantityCat c : list){
+            results.add(c.getCategory()+"  :  "+ Math.round(c.getPercentage()*100.0)/100.0+"%  ");
+        }
         return results;
     }
     @GetMapping("/getRecipes")
     public List<RecipePersonalized> getRecipes(){
-
         return recipes;
     }
     @GetMapping("/analyseRecipes")
@@ -55,9 +70,9 @@ public class RecipePersoController {
         for (RecipePersonalized recipe : recipes){
             System.out.println(recipe);
         }
-        results = recipePersoService.analyseRecipes(recipes);
+        results = conversion(recipePersoService.analyseRecipes(recipes));
+        results.addAll(recipePersoService.recommandationRecipes(recipePersoService.analyseRecipes(recipes)));
         //recipePersoService.getAnalyse().afficheAnalyse(results);
         return results;
     }
-
 }

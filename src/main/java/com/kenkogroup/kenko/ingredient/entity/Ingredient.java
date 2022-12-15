@@ -1,8 +1,17 @@
-package com.kenkogroup.kenko.ingredient;
+package com.kenkogroup.kenko.ingredient.entity;
 
 import com.kenkogroup.kenko.product.entity.Product;
 
+import javax.persistence.*;
+
+//@Entity
+//@Table(name = "ingredient")
 public class Ingredient {
+
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Column(name="idIngredient", nullable=false) //peut poser pb le nom de la colonne
+    private int idIngredient;
     Product product;
     Double quantity;
 

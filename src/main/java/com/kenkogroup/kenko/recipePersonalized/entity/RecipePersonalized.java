@@ -1,18 +1,27 @@
 package com.kenkogroup.kenko.recipePersonalized.entity;
-import com.kenkogroup.kenko.ingredient.Ingredient;
-import com.kenkogroup.kenko.product.entity.Product;
+import com.kenkogroup.kenko.ingredient.entity.Ingredient;
 
+import javax.persistence.*;
 import java.util.List;
-import java.util.Map;
 
+//@Entity
+//@Table(name = "recipePersonalized")
 public class RecipePersonalized {
-
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Column(name="idRecipe", nullable=false) //peut poser pb le nom de la colonne
     private int idRecipe;
+    //@Column(name="name")
     private String name;
+    //@Column(name="category")
     private int category;
+    //@OneToMany(mappedBy = "recipe")
     private List<Ingredient> ingredients;
+    //@Column(name="description")
     private String description;
+    //@Column(name="duration")
     private int duration;
+    //@Column(name="taken")
     private boolean taken;
 
     public RecipePersonalized() {

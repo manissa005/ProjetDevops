@@ -1,5 +1,6 @@
 package com.kenkogroup.kenko.recipePersonalized.service;
 
+import com.kenkogroup.kenko.Quantity.QuantityCat;
 import com.kenkogroup.kenko.recipePersonalized.entity.RecipePersonalized;
 import com.kenkogroup.kenko.recipePersonalized.repository.AnalyseDietetique;
 import com.kenkogroup.kenko.recipePersonalized.repository.BaseDonnee;
@@ -38,11 +39,17 @@ public class RecipePersoService {
 
         base.deleteRecipePerso(id);
     }
-    public List <String> analyseRecipePerso(RecipePersonalized recipePerso){
+    public List <QuantityCat> analyseRecipePerso(RecipePersonalized recipePerso){
         return analyse.analyseRecipe(recipePerso);
     }
 
-    public List<String> analyseRecipes(List<RecipePersonalized> recipes){
+    public List<QuantityCat> analyseRecipes(List<RecipePersonalized> recipes){
         return analyse.analyseRecipes(recipes);
+    }
+    public List<String> recommandationRecipe(List<QuantityCat> results){
+        return analyse.recommandationRecipe(results);
+    }
+    public List<String> recommandationRecipes(List<QuantityCat> results){
+        return analyse.recommandationRecipe(results);
     }
 }

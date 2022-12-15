@@ -1,6 +1,6 @@
 import http from "../component/http-common";
 const getAll = () => {
-    return http.get("");
+    return http.get("/getRecipes");
 };
 const create = data => {
     console.log( "data", data);
