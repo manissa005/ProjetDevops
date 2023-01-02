@@ -99,6 +99,7 @@ public class RecipeController {
 													@PathVariable String tall, @PathVariable String sexe,@PathVariable String mealType) throws JsonProcessingException {
 
 		double calories = recipeService.CaloriesCalculator(age,weight,tall,sexe);
+		System.out.println(calories);
 
 		List<String> ingredients = Arrays.asList("tomato", "onion","strawberry","Carrot","Garlic",
 				"Potato","Orange","Kiwi","Blackberries","Apple","Milk","Butter","Cheese","meat","Beef","Chicken","Fish");
@@ -106,7 +107,7 @@ public class RecipeController {
 
 		String url = "https://api.edamam.com/search?q="+ingredients.get(random.nextInt(ingredients.size()+1))
 				+"&app_id=656be70f&app_key=036042af3e99ebf91c95f241611890b9&from=0&to=1&calories="
-				+calories+"-"+calories+300+"&mealType="+mealType;
+				+calories+"-"+calories+150+"&mealType="+mealType;
 		HttpRequest request = HttpRequest.newBuilder()
 				.uri(URI.create(url))
 				.header("Accept", "/")
@@ -128,8 +129,8 @@ public class RecipeController {
 		List<RecipeEdamam> recettes = new ArrayList<>();
 
 		for (Hit hit : hitList) {
-			if(hit.getRecipe().getCalories()>2000)
-				hit.getRecipe().setCalories(hit.getRecipe().getCalories()/3);
+			if(hit.getRecipe().getCalories()>calories)
+				hit.getRecipe().setCalories(calories);
 			recettes.add(hit.getRecipe());
 		}
 		return recettes;

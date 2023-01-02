@@ -14,10 +14,12 @@ public class RecipeServiceImpl implements RecipeService {
         Double calories = weightDouble + tallCalculator;
         Double ageDouble =  (Double.parseDouble(age) * 5);
         calories -= ageDouble;
+        System.out.println(sexe);
 
         if(sexe.equals("Homme"))
-            return calories += 5;
-        else { return calories -= 161; }
+             calories += 5;
+        else {  calories -= 161; }
+        return calories/2;
     }
 
 	/*@Autowired
