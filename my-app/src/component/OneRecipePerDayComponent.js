@@ -10,7 +10,7 @@ class OneRecipePerDayComponent extends Component {
         super(props)
         this.state = {
             s: [],
-            age: 0,
+            age: 1,
             weight: 0,
             tall: 1,
             sexe: "",
