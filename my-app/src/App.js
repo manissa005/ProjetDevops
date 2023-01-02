@@ -6,6 +6,7 @@ import RecipeComponent from './component/RecipeComponent';
 import RecommendedRecipeComponent from './component/RecommendedRecipeComponent';
 import AjoutRecettes from './component/AjoutRecettes';
 import Historique from './component/Historique';
+import OneRecipePerDayComponent from './component/OneRecipePerDayComponent';
 function App() {
   return (
     <div className="App">
@@ -17,7 +18,7 @@ function App() {
          <Route path = '/ResultatListeRecettes' element = {<ResultatListeRecettes/>}/>
      <Route path='/RecipeComponent' element={<RecipeComponent/>}/>
      <Route path='/recommended' element={<RecommendedRecipeComponent/>}/>
-     <Route path='/recipeotd' element={<RecommendedRecipeComponent/>}/>
+     <Route path='/recipeotd' element={<OneRecipePerDayComponent/>}/>
      </Routes>
      </BrowserRouter>
     </div>
