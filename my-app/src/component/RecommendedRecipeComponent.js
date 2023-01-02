@@ -30,13 +30,13 @@ class RecommendedRecipeComponent extends Component {
                         this.setState({ age: value });
                     }} />
                     <br></br>
-                    <label>Weight</label>
+                    <label>Weight (kg)</label>
                     <input type="text" placeholder="Weight" onChange={async (event) => {
                         const value = event.target.value;
                         this.setState({ weight: value });
                     }} />
                     <br></br>
-                    <label>Tall</label>
+                    <label>Tall (cm)</label>
                     <input type="text" placeholder="Tall" onChange={async (event) => {
                         const value = event.target.value;
                         this.setState({ tall: value });
@@ -110,7 +110,7 @@ class RecommendedRecipeComponent extends Component {
                                     )}
                                    
 
-                                    <ListGroup.Item><b>Durée</b></ListGroup.Item>
+                                    <ListGroup.Item><b>Durée (mn)</b></ListGroup.Item>
                                     <ListGroup.Item>{s.totalTime}minutes</ListGroup.Item>
 
                                     <ListGroup.Item><b>Calories</b></ListGroup.Item>

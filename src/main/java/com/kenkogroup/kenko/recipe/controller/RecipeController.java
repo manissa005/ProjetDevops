@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kenkogroup.kenko.recipe.entity.edamam.Example;
 import com.kenkogroup.kenko.recipe.entity.edamam.Hit;
 import com.kenkogroup.kenko.recipe.entity.edamam.RecipeEdamam;
+import com.kenkogroup.kenko.recipe.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/recipe")
 public class RecipeController {
 
+	@Autowired
+	RecipeService recipeService;
 	@GetMapping("/{search}")
 	public List<RecipeEdamam> getRecettes(@PathVariable String search) throws JsonProcessingException {
 
@@ -95,24 +98,15 @@ public class RecipeController {
 	public List<RecipeEdamam> getRecipeWithCalories(@PathVariable String age,@PathVariable String weight,
 													@PathVariable String tall, @PathVariable String sexe,@PathVariable String mealType) throws JsonProcessingException {
 
-		Double weightDouble =  Double.parseDouble(weight) * 10;
-		Double tallCalculator =  Double.parseDouble(tall) * 6.25;
-		Double calories = weightDouble + tallCalculator;
-		Double ageDouble =  (Double.parseDouble(age) * 5);
-		calories -= ageDouble;
+		double calories = recipeService.CaloriesCalculator(age,weight,tall,sexe);
 
-		if(sexe.equals("Homme"))
-			calories += 5;
-		else { calories -= 161; }
 		List<String> ingredients = Arrays.asList("tomato", "onion","strawberry","Carrot","Garlic",
 				"Potato","Orange","Kiwi","Blackberries","Apple","Milk","Butter","Cheese","meat","Beef","Chicken","Fish");
 		Random random = new Random();
-		System.out.println("Calories : " + calories);
-		System.out.println("Calories : " + calories.intValue());
-		System.out.println("Calories : " + calories.intValue());
+
 		String url = "https://api.edamam.com/search?q="+ingredients.get(random.nextInt(ingredients.size()+1))
 				+"&app_id=656be70f&app_key=036042af3e99ebf91c95f241611890b9&from=0&to=1&calories="
-				+calories.intValue()+"-"+calories.intValue()+300+"&mealType="+mealType;
+				+calories+"-"+calories+300+"&mealType="+mealType;
 		HttpRequest request = HttpRequest.newBuilder()
 				.uri(URI.create(url))
 				.header("Accept", "/")

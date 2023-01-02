@@ -1,11 +1,5 @@
-/*package com.kenkogroup.kenko.recipe.impl;
-
-import java.util.List;
-
-import com.kenkogroup.kenko.recipe.entity.Recipe;
-import com.kenkogroup.kenko.recipe.repository.RecipeRepository;
+package com.kenkogroup.kenko.recipe.impl;
 import com.kenkogroup.kenko.recipe.service.RecipeService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
@@ -13,8 +7,20 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RecipeServiceImpl implements RecipeService {
+    @Override
+    public double CaloriesCalculator(String age, String weight, String tall, String sexe) {
+        Double weightDouble =  Double.parseDouble(weight) * 10;
+        Double tallCalculator =  Double.parseDouble(tall) * 6.25;
+        Double calories = weightDouble + tallCalculator;
+        Double ageDouble =  (Double.parseDouble(age) * 5);
+        calories -= ageDouble;
 
-	@Autowired
+        if(sexe.equals("Homme"))
+            return calories += 5;
+        else { return calories -= 161; }
+    }
+
+	/*@Autowired
 	private RecipeRepository recipeRepository;
 	
 	public RecipeRepository getRecipeRepository() {
@@ -55,6 +61,5 @@ public class RecipeServiceImpl implements RecipeService {
 		}
 		return deletedRecipe;
 	}
-
-}
 */
+}
