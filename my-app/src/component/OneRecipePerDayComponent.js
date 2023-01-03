@@ -1,49 +1,59 @@
-import React, { Component } from 'react';
+import React, {Component, useState} from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import OneRecipePerDayService from "../services/OneRecipePerDayService";
 import './forms.css';
+import {Row} from "react-bootstrap";
 
 class OneRecipePerDayComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
             s: [],
-            age: 1,
-            weight: 0,
-            tall: 1,
-            sexe: "",
-            checked:"",
-            mealType:"",
-            calories:""
+            isDisabled: false,
+            gbButton: "My menu"
         }
+    }
+    disable(){
+        this.setState({isDisabled : true});
+    }
+
+    myMenu(){
+        alert('Hi there!');
+        this.setState({gbButton : "See you Tomorrow"});
     }
 
     render() {
+
         return (
             <div>
-                <Button onClick={async () => {
+                <div>
+                <Button disabled={this.state.isDisabled} onClick={async () => {
                     try {
                         const { recipePerDay } = OneRecipePerDayService();
                         const data = await recipePerDay();
                         this.setState({ s: data.data });
                         this.setState({ recipeNumber: 1 });
+                        this.disable()
+                        this.myMenu()
+
                         console.log(data);
                     }
                     catch (error) {
                         console.log(error);
                     }
-                }} >Valider</Button>
+                }} >{this.state.gbButton}</Button>
+                </div>
+
                 {
                     this.state.s.map(
                         s =>
-                            <Card className="d-flex justify-content-center" border="info" style={{ width: '18rem' }}>
+                            <Card border="info" style={{width: '25rem', padding: '1rem', display: 'inline-flex' }}>
                                 <Card.Img variant="top" src={s.image} />
                                 <Card.Body>
                                     <Card.Title>{s.label}</Card.Title>
                                     <Card.Text>
-
                                     </Card.Text>
                                 </Card.Body>
 
