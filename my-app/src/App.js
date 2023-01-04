@@ -7,11 +7,13 @@ import RecommendedRecipeComponent from './component/RecommendedRecipeComponent';
 import AjoutRecettes from './component/AjoutRecettes';
 import Historique from './component/Historique';
 import OneRecipePerDayComponent from './component/OneRecipePerDayComponent';
+import UserRegistration from "./component/UserRegistration";
 function App() {
   return (
     <div className="App">
      <BrowserRouter>
      <Routes>
+         <Route path='/Registration' element={<UserRegistration/>}/>
          <Route path='Historique' element={<Historique/>}/>
          <Route path='/AjoutRecettes' element={<AjoutRecettes/>}/>
      <Route path='/Resultat' element={<Resultat/>}/>
