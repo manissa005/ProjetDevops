@@ -27,10 +27,35 @@ import org.springframework.web.bind.annotation.*;
 public class RecipeController {
 	Random random = new Random();
 	List<String> ingredients = Arrays.asList("tomato", "onion","strawberry","Carrot","Garlic",
-			"Potato","Orange","Kiwi","Blackberries","Apple","Milk","Butter","Cheese","meat","Beef","Chicken","Fish");
+			"Potato","Orange","Blackberries","Apple","Milk","Butter","Cheese","Meat","Beef","Chicken","Fish");
 	List<String> type = Arrays.asList("breakfast","lunch","dinner");
 	@Autowired
 	RecipeService recipeService;
+
+	private RecipeEdamam apiCall(String mealType) throws JsonProcessingException {
+
+		String url = "https://api.edamam.com/search?q=" + ingredients.get(random.nextInt(ingredients.size()+1))
+				+ "&app_id=656be70f&app_key=036042af3e99ebf91c95f241611890b9&from=0&to=1&mealType="+mealType;
+
+		HttpRequest request = HttpRequest.newBuilder()
+				.uri(URI.create(url))
+				.header("Accept", "*/*")
+				.header("Accept-Encoding", "deflate, br")
+				.method("GET", HttpRequest.BodyPublishers.noBody())
+				.build();
+		HttpResponse<String> response = null;
+		try {
+			response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+		} catch (IOException | InterruptedException e) {
+			e.printStackTrace();
+		}
+		String responseString = response.body();
+
+		Example data = new ObjectMapper().readValue(responseString, Example.class);
+
+		List<Hit> recipe = data.getHits();
+		return recipe.get(0).getRecipe();
+	}
 
 	@GetMapping("/{search}")
 	public List<RecipeEdamam> getRecettes(@PathVariable String search) throws JsonProcessingException {
@@ -131,37 +156,13 @@ public class RecipeController {
 		List<RecipeEdamam> recettes = new ArrayList<>();
 
 		for (Hit hit : hitList) {
-			if(hit.getRecipe().getCalories()>calories)
-				hit.getRecipe().setCalories(calories);
+			hit.getRecipe().setCalories(calories);
 			recettes.add(hit.getRecipe());
 		}
 		return recettes;
 	}
 
-	private RecipeEdamam apiCall(String mealType) throws JsonProcessingException {
 
-		String url = "https://api.edamam.com/search?q=" + ingredients.get(random.nextInt(ingredients.size()+1))
-				+ "&app_id=656be70f&app_key=036042af3e99ebf91c95f241611890b9&from=0&to=1&mealType="+mealType;
-
-		HttpRequest request = HttpRequest.newBuilder()
-				.uri(URI.create(url))
-				.header("Accept", "*/*")
-				.header("Accept-Encoding", "deflate, br")
-				.method("GET", HttpRequest.BodyPublishers.noBody())
-				.build();
-		HttpResponse<String> response = null;
-		try {
-			response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-		} catch (IOException | InterruptedException e) {
-			e.printStackTrace();
-		}
-		String responseString = response.body();
-
-		Example data = new ObjectMapper().readValue(responseString, Example.class);
-
-		List<Hit> recipe = data.getHits();
-		return recipe.get(0).getRecipe();
-	}
 	@GetMapping("/menu")
 	public List<RecipeEdamam> getMenu() throws JsonProcessingException {
 		List<RecipeEdamam> recettes = new ArrayList<>();
