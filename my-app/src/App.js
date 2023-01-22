@@ -14,6 +14,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Login from './component/Login';
+
 function App() {
   return (
 
@@ -41,6 +43,12 @@ function App() {
                           <li className="nav-item">
                               <a className="nav-link" href="/recipecomponent">Search a recipe</a>
                           </li>
+                          <li className="nav-item">
+                              <a className="nav-link" href="/login">Login</a>
+                          </li>
+                          <li className="nav-item">
+                              <a className="nav-link" href="/Registration">Inscription</a>
+                          </li>
                       </ul>
                   </div>
               </div>
@@ -57,6 +65,8 @@ function App() {
                  <Route path='/recipecomponent' element={<RecipeComponent/>}/>
                  <Route path='/recommended' element={<RecommendedRecipeComponent/>}/>
                  <Route path='/recipeotd' element={<OneRecipePerDayComponent/>}/>
+                 <Route path='/Login' element={<Login/>}/>
+
              </Routes>
          </BrowserRouter>
         </div>

@@ -40,6 +40,8 @@ function UserRegistration() {
         <div className="container mt-4">
             <form>
                 <div class="form-group">
+                    <h1> Bienvenue sur Kenko !</h1>
+                    <h2> Inscription !</h2>
                     <label>Name</label>
                     <input type="text" class="form-control" placeholder="Enter Name"
                            value={name}
