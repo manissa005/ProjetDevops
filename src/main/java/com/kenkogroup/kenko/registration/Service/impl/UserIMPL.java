@@ -7,6 +7,8 @@ import com.kenkogroup.kenko.registration.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserIMPL implements UserService {
 
@@ -24,5 +26,9 @@ public class UserIMPL implements UserService {
         );
         userRepo.save(user);
         return user.getUsername();
+    }
+    @Override
+    public List<User> getAllUsers() {
+        return userRepo.findAll();
     }
 }
