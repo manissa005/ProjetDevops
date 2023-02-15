@@ -39,17 +39,17 @@ public class RecipePersoService {
 
         base.deleteRecipePerso(id);
     }
-    public List <QuantityCat> analyseRecipePerso(RecipePersonalized recipePerso){
-        return analyse.analyseRecipe(recipePerso);
+    public List <QuantityCat> analyseRecipe(RecipePersonalized recipe){
+        return analyse.analyseRecipe(recipe);
     }
 
-    public List<QuantityCat> analyseRecipes(List<RecipePersonalized> recipes){
-        return analyse.analyseRecipes(recipes);
+    public List<QuantityCat> analyseDay(List<RecipePersonalized> recipes){
+        return analyse.analyseDay(recipes);
     }
-    public List<String> recommandationRecipe(List<QuantityCat> results){
-        return analyse.recommandationRecipe(results);
+    public List<String> recommandationRecipe(RecipePersonalized recipe){
+        return analyse.recommandationRecipe(recipe);
     }
-    public List<String> recommandationRecipes(List<QuantityCat> results){
-        return analyse.recommandationRecipe(results);
+    public List<String> recommandationDay(List<RecipePersonalized> recipes){
+        return analyse.recommandationDay(recipes);
     }
 }
