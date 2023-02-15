@@ -393,5 +393,52 @@ else{
         return note;
     }
 
+    //ANALYSE DES REPAS D'UNE SEMAINE
+
+    /**
+     *Calculpourcentagedechaquecatégoried'alimentsdesrecettesd'unesemaine
+     *@paramrecipes
+     *@return
+     */
+    publicList<QuantityCat>analyseWeek(List<RecipePersonalized>recipes){
+        List<QuantityCat>results=newArrayList<>();
+        if(recipes.size()==21){
+            doublequantityTotal=quantityTotalRecipes(recipes);
+            Stringcategory;
+            doublepercentage;
+
+//AJOUTPOURCENTAGEDESVIANDES
+            doublequantityCat=quantityViandeRecipes(recipes);
+            category="ViandesetOeufs";
+            percentage=percentageCategory(quantityTotal,quantityCat);
+            results.add(newQuantityCat(category,percentage,quantityCat));
+
+//AJOUTPOURCENTAGEDESFECULENTS
+            quantityCat=quantityFeculentsRecipes(recipes);
+            category="Féculents";
+            percentage=percentageCategory(quantityTotal,quantityCat);
+            results.add(newQuantityCat(category,percentage,quantityCat));
+
+//AJOUTPOURCENTAGEFRUITSETLEGUMES
+            quantityCat=quantityFruitsLegumesRecipes(recipes);
+            category="FruitsetLégumes";
+            percentage=percentageCategory(quantityTotal,quantityCat);
+            results.add(newQuantityCat(category,percentage,quantityCat));
+
+//AJOUTPOURCENTAGEPRODUITSLAITIERS
+            quantityCat=quantityProduitsLaitiersRecipes(recipes);
+            category="ProduitsLaitiers";
+            percentage=percentageCategory(quantityTotal,quantityCat);
+            results.add(newQuantityCat(category,percentage,quantityCat));
+        }
+        returnresults;
+    }
+
+    publicdoublenoteWeek(){
+        doublenote=0;
+        returnnote;
+    }
+
+
 
 }
