@@ -14,9 +14,6 @@ const Resultat = () => {
         <p>{location.state}</p>
     </div>
     );
-    /*{data.map(item => {
-        return <li>{item[0]}</li>;
-    })}*/
 }
 export default Resultat;
 
