@@ -400,43 +400,43 @@ else{
      *@paramrecipes
      *@return
      */
-    publicList<QuantityCat>analyseWeek(List<RecipePersonalized>recipes){
-        List<QuantityCat>results=newArrayList<>();
+    public List <QuantityCat>analyseWeek(List<RecipePersonalized>recipes){
+        List<QuantityCat>results=new ArrayList<>();
         if(recipes.size()==21){
-            doublequantityTotal=quantityTotalRecipes(recipes);
-            Stringcategory;
-            doublepercentage;
+            double quantityTotal=quantityTotalRecipes(recipes);
+            String category;
+            double percentage;
 
 //AJOUTPOURCENTAGEDESVIANDES
-            doublequantityCat=quantityViandeRecipes(recipes);
+            double quantityCat=quantityViandeRecipes(recipes);
             category="ViandesetOeufs";
             percentage=percentageCategory(quantityTotal,quantityCat);
-            results.add(newQuantityCat(category,percentage,quantityCat));
+            results.add(new QuantityCat(category,percentage,quantityCat));
 
 //AJOUTPOURCENTAGEDESFECULENTS
             quantityCat=quantityFeculentsRecipes(recipes);
             category="Féculents";
             percentage=percentageCategory(quantityTotal,quantityCat);
-            results.add(newQuantityCat(category,percentage,quantityCat));
+            results.add(new QuantityCat(category,percentage,quantityCat));
 
 //AJOUTPOURCENTAGEFRUITSETLEGUMES
             quantityCat=quantityFruitsLegumesRecipes(recipes);
             category="FruitsetLégumes";
             percentage=percentageCategory(quantityTotal,quantityCat);
-            results.add(newQuantityCat(category,percentage,quantityCat));
+            results.add(new QuantityCat(category,percentage,quantityCat));
 
 //AJOUTPOURCENTAGEPRODUITSLAITIERS
             quantityCat=quantityProduitsLaitiersRecipes(recipes);
             category="ProduitsLaitiers";
             percentage=percentageCategory(quantityTotal,quantityCat);
-            results.add(newQuantityCat(category,percentage,quantityCat));
+            results.add(new QuantityCat(category,percentage,quantityCat));
         }
-        returnresults;
+        return results;
     }
 
-    publicdoublenoteWeek(){
-        doublenote=0;
-        returnnote;
+    public double noteWeek(){
+        double note=0;
+        return note;
     }
 
 
@@ -447,41 +447,41 @@ else{
      *@paramrecipes
      *@return
      */
-    publicList<QuantityCat>analyseMonth(List<RecipePersonalized>recipes){
-        List<QuantityCat>results=newArrayList<>();
-        doublequantityTotal=quantityTotalRecipes(recipes);
-        Stringcategory;
-        doublepercentage;
+    public List<QuantityCat>analyseMonth(List<RecipePersonalized>recipes){
+        List<QuantityCat>results=new ArrayList<>();
+        double quantityTotal=quantityTotalRecipes(recipes);
+        String category;
+        double percentage;
 
 //AJOUTPOURCENTAGEDESVIANDES
-        doublequantityCat=quantityViandeRecipes(recipes);
+        double quantityCat=quantityViandeRecipes(recipes);
         category="ViandesetOeufs";
         percentage=percentageCategory(quantityTotal,quantityCat);
-        results.add(newQuantityCat(category,percentage,quantityCat));
+        results.add(new QuantityCat(category,percentage,quantityCat));
 
 //AJOUTPOURCENTAGEDESFECULENTS
         quantityCat=quantityFeculentsRecipes(recipes);
         category="Féculents";
         percentage=percentageCategory(quantityTotal,quantityCat);
-        results.add(newQuantityCat(category,percentage,quantityCat));
+        results.add(new QuantityCat(category,percentage,quantityCat));
 
 //AJOUTPOURCENTAGEFRUITSETLEGUMES
         quantityCat=quantityFruitsLegumesRecipes(recipes);
         category="FruitsetLégumes";
         percentage=percentageCategory(quantityTotal,quantityCat);
-        results.add(newQuantityCat(category,percentage,quantityCat));
+        results.add(new QuantityCat(category,percentage,quantityCat));
 
 //AJOUTPOURCENTAGEPRODUITSLAITIERS
         quantityCat=quantityProduitsLaitiersRecipes(recipes);
         category="ProduitsLaitiers";
         percentage=percentageCategory(quantityTotal,quantityCat);
-        results.add(newQuantityCat(category,percentage,quantityCat));
-        returnresults;
+        results.add(new QuantityCat(category,percentage,quantityCat));
+        return results;
     }
 
-    publicdoublenoteMonth(){
-        doublenote=0;
-        returnnote;
+    public double noteMonth(){
+        double note=0;
+        return note;
     }
 
 }
