@@ -1,16 +1,11 @@
 import {useState} from 'react';
 import React from 'react';
 import './Personnel.css'
-//import 'bootstrap/dist/css/bootstrap.min.css';
-//import Button from 'react-bootstrap/Button';
 import {Link, Route, Routes} from "react-router-dom";
 import Ingredients from "./Ingredients";
-//import Ingredients from './component/Ingredients';
 const Personnel = () => {
 const[name, setName] = useState(null);
 const[duration, setDuration] = useState(null);
-//const[id,setId] = useState(null);
-//const[category, setCategory] = useState(null);
     const idRecipe = 0;
     const category = 1;
     const taken = false
