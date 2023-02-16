@@ -4,10 +4,16 @@
   background-repeat:no-repeat;
   background-position:center center;
   background-size: cover;
+  font-family: Pineforest ;
+  display: flex;
+  flex-direction: column;
+
+
 
 
 
 }
+
 
 .App-logo {
   height: 40vmin;

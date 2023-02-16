@@ -12,7 +12,7 @@ class OneRecipePerDayComponent extends Component {
             s: [],
             type: ["Breakfast","Lunch","Dinner"],
             isDisabled: false,
-            gbButton: "My menu",
+            gbButton: "Mon menu",
             counter:-1
         }
     }
@@ -29,6 +29,7 @@ class OneRecipePerDayComponent extends Component {
 
         return (
             <div>
+                <h1> Nous vous proposons des menus journaliers tout en préservant votre santé </h1>
                 <div>
                 <Button disabled={this.state.isDisabled} onClick={async () => {
                     try {

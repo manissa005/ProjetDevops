@@ -41,7 +41,7 @@ function Login() {
     return (
         <div className="container mt-4"
              >
-            <form>
+            <form >
                 <div className="form-group">
                     <h1> Bon retour parmis nous</h1>
                     <h2> Connectez-vous !</h2>
@@ -49,8 +49,8 @@ function Login() {
                 </div>
 
                 <div className="form-group">
-                    <label>Email</label>
-                    <input type="text" class="form-control" placeholder="Enter Address"
+                    <label>Adresse mail</label>
+                    <input type="text" class="form-control" placeholder="Entrer l'adresse"
                            value={address}
                            onChange={(event) =>
                            {
@@ -60,8 +60,8 @@ function Login() {
                 </div>
 
                 <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" placeholder="Enter Password"
+                    <label>Mot de passe</label>
+                    <input type="password" class="form-control" placeholder="Entrer le mot de passe"
                            value={password}
                            onChange={(event) =>
                            {
@@ -71,8 +71,8 @@ function Login() {
                 </div>
 
                
-               <button className="btn btn-primary mt-4"  onClick={LoginComponent}> Login</button>
-               <button className="btn btn-primary mt-4"  onClick={Register}> Register</button>
+               <button className="btn btn-primary mt-4"  onClick={LoginComponent}> Se connecter</button>
+               <button className="btn btn-primary mt-4"  onClick={Register}> S'inscrire</button>
              
                 
             </form>

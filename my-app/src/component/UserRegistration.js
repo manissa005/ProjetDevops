@@ -48,8 +48,8 @@ function UserRegistration() {
                     <img src={logo} alt="Logo" />
                     <h1> Bienvenue sur Kenko !</h1>
                     <h2> Inscription !</h2>
-                    <label>Name</label>
-                    <input type="text" class="form-control" placeholder="Enter Name"
+                    <label>Identifiant</label>
+                    <input type="text" class="form-control" placeholder="Entrer l'identifiant"
                            value={name}
                            onChange={(event) =>
                            {
@@ -59,8 +59,8 @@ function UserRegistration() {
                 </div>
 
                 <div class="form-group" class="formulaire">
-                    <label>Email</label>
-                    <input type="text" class="form-control" placeholder="Enter Address"
+                    <label>Adresse mail</label>
+                    <input type="text" class="form-control" placeholder="Entrer l'adresse mail"
                            value={address}
                            onChange={(event) =>
                            {
@@ -70,8 +70,8 @@ function UserRegistration() {
                 </div>
 
                 <div class="form-group" class="formulaire">
-                    <label>Password</label>
-                    <input type="password" class="form-control" placeholder="Enter Password"
+                    <label>Mot de passe</label>
+                    <input type="password" class="form-control" placeholder="Entrer le mot de passe"
                            value={password}
                            onChange={(event) =>
                            {
@@ -80,7 +80,7 @@ function UserRegistration() {
                     />
                 </div>
 
-                <button class="btn btn-primary mt-4"  onClick={save}>Register</button>
+                <button class="btn btn-primary mt-4"  onClick={save}>S'inscrire</button>
             </form>
         </div>
     );

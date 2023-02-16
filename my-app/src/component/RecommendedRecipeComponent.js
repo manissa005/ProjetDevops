@@ -32,20 +32,20 @@ class RecommendedRecipeComponent extends Component {
                         this.setState({ age: value });
                     }} />
                     <br></br>
-                    <label>Weight (kg)</label>
-                    <input type="text" placeholder="Weight" onChange={async (event) => {
+                    <label>Poids (kg)</label>
+                    <input type="text" placeholder="Poids" onChange={async (event) => {
                         const value = event.target.value;
                         this.setState({ weight: value });
                     }} />
                     <br></br>
-                    <label>Tall (cm)</label>
-                    <input type="text" placeholder="Tall" onChange={async (event) => {
+                    <label>Taille (cm)</label>
+                    <input type="text" placeholder="Taille" onChange={async (event) => {
                         const value = event.target.value;
                         this.setState({ tall: value });
                     }} />
                     <br></br>
                     <fieldset data-role="controlgroup">
-                        <label>Gender:</label>
+                        <label>Sexe:</label>
                         <br></br>
                         <label htmlFor="male">Homme</label>
                         <input type="radio" name="gender" id="male" value="Homme" onChange={async (event) => {
