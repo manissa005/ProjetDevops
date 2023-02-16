@@ -19,3 +19,9 @@ ol {
 strong {
   font-weight: bold;
 }
+
+img {
+  display: block;
+  width: 30%;
+  margin: auto;
+}
