@@ -1,0 +1,14 @@
+
+
+.mb-3 img{
+    border-radius: 50%;
+}
+.TitreIngredients
+{
+    text-align: center ;
+    font-size: 3rem ;
+    color: black ;
+}
+.row1{
+background-image: url("imageIngredients.bmp");
+}

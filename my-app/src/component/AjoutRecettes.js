@@ -5,6 +5,7 @@ import { useFormik, FieldArray, FormikProvider } from 'formik';
 import { Button, FloatingLabel } from 'react-bootstrap';
 import {Link} from "react-router-dom";
 import ReceiptsDataService from "../services/RecipeService";
+import './AjoutRecettes.css';
 const AjoutRecettes = () => {
     const formik = useFormik({
         initialValues: {
@@ -124,21 +125,20 @@ const AjoutRecettes = () => {
                     </Form>
                 </div>
             </div>)}
-            {step === 1 && (<div className='row'>
+            {step === 1 && (<div className='row1'>
                 <div className='col-md-12'>
-                    <h2>Liste des ingrédients</h2>
+                    <h2 className='TitreIngredients'>Liste des ingrédients</h2>
                     <FormikProvider value={formik}>
                         <form>
                             <FieldArray name="ingredients">
                                 <div className='row'>
                                     {values.ingredients.length > 0 &&
                                         values.ingredients.map((ingredient, index) => (
-                                            <div className="col-md-3" key={index}>
+                                            <div className="col-md-2" key={index}>
                                                 <Form.Group controlId="formGridName" className='mb-3'>
                                                     <img src={ingredient.product.img} alt={ingredient.product.name} width="150" height="150" />
                                                     <Form.Control
                                                         placeholder="Quantité"
-                                                        type="number"
                                                         name={`ingredients[${index}].quantity`}
                                                         value={values.ingredients[index].quantity}
                                                         onChange={formik.handleChange}

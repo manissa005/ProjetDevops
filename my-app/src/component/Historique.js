@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Table from 'react-bootstrap/Table';
-//import {Link,} from "react-router-dom";
 import './Historique.css';
 import './Personnel.css';
 import getAllListe from '../component/ResultatListeRecettes'
-import getSimilaire from '../component/HistoriqueSimilaire'
 import ReceiptsDataService from '../services/RecipeService'
 import {Link} from "react-router-dom";
+import './recetteImage.jpg';
 const Historique = () => {
 
     const [recettes, setRecettes] = useState([])
@@ -49,7 +48,7 @@ const Historique = () => {
                             <td>{index}</td>
                             <td>{recettes.name}</td>
                             <td>{recettes.description}</td>
-                            <td><img src={recettes.image} width='70' height={70} /></td>
+                            <td><img src='./recetteImage.jpg' width='60' height={60} /></td>
                             <td><button onClick={ () => similaire(recettes.name) } >Like</button></td>
 
                         </tr>))}
