@@ -148,7 +148,7 @@ const AjoutRecettes = () => {
                             </FieldArray>
                             <div className='row mt-5'>
                                 <div className='col-md-12 mx-auto text-center'>
-                                    <button> <Link to = "/Resultat" type="button" onClick={handleAddReceipt} className="btn btn-primary add-to-receipt">Ajouter la recette </Link></button>
+                                    <button> <Link to = "/Resultat" type="button" onClick={handleAddReceipt}  className="btn btn-primary add-to-receipt">Analyser la recette </Link></button>
 
                                 </div>
                             </div>

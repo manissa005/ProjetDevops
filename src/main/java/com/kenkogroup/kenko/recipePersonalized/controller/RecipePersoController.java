@@ -33,20 +33,29 @@ public class RecipePersoController {
         recipePersoService.deleteRecipePerso(id);
     }
 
+   @ResponseStatus(HttpStatus.OK)
+    @PostMapping("/analyse")
+    public List<String> analyseRecipe(@RequestBody RecipePersonalized recipe) {
+        List<String> results = conversion(recipePersoService.analyseRecipe(recipe));
+        results.addAll(recipePersoService.recommandationRecipe(recipe));
+        recipes.add(recipe);
+        return results;
+    }
+
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/analyse")
-    public List<String> analyseRecipe(@RequestBody RecipePersonalized recipePerso) {
-        System.out.print("recette a analyser: " + recipePerso);
-        List<String> results = conversion(recipePersoService.analyseRecipePerso(recipePerso));
-        if(recipePersoService.getAnalyse().quantityTotalRecipe(recipePerso)<250.0){
+    public List<String> analyseRecipe2(@RequestBody RecipePersonalized recipe){
+        System.out.print("recette a analyser: " + recipe);
+        List<String> results = conversion(recipePersoService.analyseRecipe(recipe));
+        if(recipePersoService.getAnalyse().quantityTotalRecipe(recipe)<250.0){
             results.add("Quantité Totale insuffisante  ");
         }else{
-            if(recipePersoService.getAnalyse().quantityTotalRecipe(recipePerso)>650.0){
+            if(recipePersoService.getAnalyse().quantityTotalRecipe(recipe)>650.0){
                 results.add("Quantité Totale très grande");
             }
-                else results.addAll(recipePersoService.recommandationRecipe(recipePersoService.analyseRecipePerso(recipePerso)));
+            else results.addAll(recipePersoService.recommandationRecipe(recipe));
         }
-        recipes.add(recipePerso);
+        recipes.add(recipe);
         return results;
     }
     /*
@@ -70,8 +79,8 @@ public class RecipePersoController {
         for (RecipePersonalized recipe : recipes){
             System.out.println(recipe);
         }
-        results = conversion(recipePersoService.analyseRecipes(recipes));
-        results.addAll(recipePersoService.recommandationRecipes(recipePersoService.analyseRecipes(recipes)));
+        results = conversion(recipePersoService.analyseDay(recipes));
+        results.addAll(recipePersoService.recommandationDay(recipes));
         //recipePersoService.getAnalyse().afficheAnalyse(results);
         return results;
     }

@@ -23,17 +23,19 @@ public class RecipePersonalized {
     private int duration;
     //@Column(name="taken")
     private boolean taken;
+    private String type;
 
     public RecipePersonalized() {
     }
 
-    public RecipePersonalized(String name, int category, List<Ingredient> ingredients, String description, int duration, boolean taken ) {
+    public RecipePersonalized(String name, int category, List<Ingredient> ingredients, String description, int duration, boolean taken, String type ) {
         this.name = name;
         this.category = category;
         this.ingredients=ingredients;
         this.description=description;
         this.duration =duration;
         this.taken =taken;
+        this.type=type;
     }
 
     public int getIdRecipe() {
@@ -92,6 +94,13 @@ public class RecipePersonalized {
         this.taken = taken;
     }
 
+    public void setType(String type){
+        this.type=type;
+    }
+
+    public String getType(){
+        return type;
+    }
     @Override
     public String toString() {
         return "RecipePersonalized{" +

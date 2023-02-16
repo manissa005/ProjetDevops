@@ -15,7 +15,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Login from './component/Login';
-
+import HistoriqueSimilaire  from "./component/HistoriqueSimilaire";
 function App() {
   return (
 
@@ -66,6 +66,7 @@ function App() {
                  <Route path='/recommended' element={<RecommendedRecipeComponent/>}/>
                  <Route path='/recipeotd' element={<OneRecipePerDayComponent/>}/>
                  <Route path='/Login' element={<Login/>}/>
+                 <Route path='/HistoriqueSimilaire' element={<HistoriqueSimilaire/>}/>
 
              </Routes>
          </BrowserRouter>
