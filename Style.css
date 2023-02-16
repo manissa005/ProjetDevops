@@ -10,3 +10,11 @@ h1 {
 p {
   color: #666666;
 }
+
+ol {
+  margin-left: 30px;
+}
+
+strong {
+  font-weight: bold;
+}
