@@ -23,6 +23,8 @@ class RecommendedRecipeComponent extends Component {
     render() {
         return (
             <div>
+                <h2> Qu'allez vous manger aujoud'hui ?</h2>
+                <h4> Saisissez vos informations pour le savoir !</h4>
                 <form>
                     <label>Age</label>
                     <input type="text" placeholder="Age" name="Age" onChange={async (event) => {

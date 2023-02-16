@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import React from 'react';
 import './Personnel.css'
+import backgroundImage from './cuisineKenko.jpg';
 import {Link, Route, Routes} from "react-router-dom";
 import Ingredients from "./Ingredients";
 const Personnel = () => {
@@ -20,7 +21,13 @@ const values = {
 };
 console.log(values);
 return (
-<div>
+<div
+     style={{
+         backgroundImage: `url(${backgroundImage})`, // Définir l'image de fond ici
+         backgroundSize: 'cover',
+         backgroundPosition: 'center',
+         height: '100vh',
+     }}>
 <h1 className="h1-Personnel"> Fiche Recettes </h1>
 <form className="Personnel-form">
 <div className="form-content">

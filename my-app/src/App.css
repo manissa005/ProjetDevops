@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  background-image: url("./cuisineKenko.jpg");
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size: cover;
+
+
+
 }
 
 .App-logo {
@@ -14,7 +21,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: beige;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,8 +32,9 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: beige;
 }
+
 
 @keyframes App-logo-spin {
   from {

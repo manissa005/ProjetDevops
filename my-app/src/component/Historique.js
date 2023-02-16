@@ -30,7 +30,9 @@ const Historique = () => {
     }, [])
     return (
         <div>
-            <h1 className="titre2">Historique des recettes </h1>
+
+            <h2 className="titre2">Votre historique de recettes ! </h2>
+            <h5> Vous pouvez avoir une analyse complète de ce que vous avez manger en cliquant sur le bouton  !</h5>
             <div className="container2">
                 <Table className="table" striped="columns">
                     <thead>

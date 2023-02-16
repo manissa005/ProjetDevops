@@ -73,10 +73,14 @@ const AjoutRecettes = () => {
 
     }
     return (
+
         <div>
             {step === 0 && (<div className='row'>
+
                 <div className='col-md-12'>
-                    <h2>Fiche Recettes</h2>
+                    <h1>Vous pouvez ajouter une recette</h1>
+                    <h2>Fiche Recette</h2>
+                    <h5>Saisissez les informations suivantes :</h5>
                 </div>
                 <div className='col-md-12'>
                     {JSON.stringify()}

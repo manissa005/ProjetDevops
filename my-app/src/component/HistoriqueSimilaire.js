@@ -23,6 +23,8 @@ const HistoriqueSimilaire = () => {
     return (
         <div>
             <h1 className="titre2">Recettes similaires</h1>
+            <h3> Ici vous retrouvez des recettes similaires à celles que vous avez liké ! </h3>
+
             <div className="container2">
                 <Table className="table" striped="columns">
                     <thead>

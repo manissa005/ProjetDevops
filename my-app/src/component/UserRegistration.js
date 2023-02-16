@@ -1,5 +1,7 @@
 import axios from 'axios';
 import {useState } from "react";
+import logo from './logo.jpg';
+import './forms.css';
 
 function UserRegistration() {
 
@@ -7,6 +9,7 @@ function UserRegistration() {
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
     const [password, setPassword] = useState("");
+
 
     async function save(event)
     {
@@ -37,9 +40,12 @@ function UserRegistration() {
 
 
     return (
-        <div className="container mt-4">
-            <form>
-                <div class="form-group">
+        <div className="container mt-4"
+             >
+            <form class="formulaire"   >
+
+                <div class="form-group" class="formulaire">
+                    <img src={logo} alt="Logo" />
                     <h1> Bienvenue sur Kenko !</h1>
                     <h2> Inscription !</h2>
                     <label>Name</label>
@@ -52,7 +58,7 @@ function UserRegistration() {
                     />
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" class="formulaire">
                     <label>Email</label>
                     <input type="text" class="form-control" placeholder="Enter Address"
                            value={address}
@@ -63,7 +69,7 @@ function UserRegistration() {
                     />
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" class="formulaire">
                     <label>Password</label>
                     <input type="password" class="form-control" placeholder="Enter Password"
                            value={password}

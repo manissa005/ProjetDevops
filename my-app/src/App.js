@@ -32,19 +32,27 @@ function App() {
                   <div className="collapse navbar-collapse" id="navbarText">
                       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                           <li className="nav-item">
-                              <a className="nav-link active" aria-current="page" href="/recipeotd">Recipe of the day</a>
+                              <a className="nav-link active" aria-current="page" href="/recipeotd">Recettes du jour</a>
                           </li>
                           <li className="nav-item">
-                              <a className="nav-link" href="/recommended">Recommended Recipe</a>
+                              <a className="nav-link active" aria-current="page" href="/Historique">Historique</a>
+                          </li>
+
+                          <li className="nav-item">
+                              <a className="nav-link" href="/HistoriqueSimilaire">Recettes similaires</a>
+                          </li>
+
+                          <li className="nav-item">
+                              <a className="nav-link" href="/recommended">Recettes recommandées</a>
                           </li>
                           <li className="nav-item">
-                              <a className="nav-link" href="/ajoutrecettes">Add recipe</a>
+                              <a className="nav-link" href="/ajoutrecettes">Ajouter une recette</a>
                           </li>
                           <li className="nav-item">
-                              <a className="nav-link" href="/recipecomponent">Search a recipe</a>
+                              <a className="nav-link" href="/recipecomponent">Chercher une recette</a>
                           </li>
                           <li className="nav-item">
-                              <a className="nav-link" href="/login">Login</a>
+                              <a className="nav-link" href="/login">Se connecter</a>
                           </li>
                           <li className="nav-item">
                               <a className="nav-link" href="/Registration">Inscription</a>
