@@ -1,15 +1,30 @@
-import React, { useState } from 'react';
-import { PieChart, Pie, Cell, Legend, Tooltip } from 'recharts';
-import { useLocation } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, {useState, useEffect } from "react";
+import ListeService from "../services/ListeService";
+import {Cell, Legend, Pie, PieChart, Tooltip} from "recharts";
+import axios from "axios";
 
-const Resultat = () => {
-    const location = useLocation();
-    const data = location.state;
+
+const ResultatListeRecettes = () => {
+
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF'];
+    const [data, setData] = useState({ results :[], recommandations : []});
+
+    useEffect(() => {
+        axios.get("http://localhost:8081/recipePersonalized/analyseWeek")
+            .then(response => {
+                setData({ results: response.data.results, recommandations: response.data.recommandations });
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, []);
+    console.log(data.results);
+    console.log(data.recommandations);
 
     // Supprimez les chaînes en double de data.recommandations
     const uniqueRecommandations = [...new Set(data.recommandations)];
-
+    const uniqueResults = new Set(data.results);
     return (
         <div>
             <h1 style={{ textAlign: 'center' }}>Résultat de l'analyse</h1>
@@ -42,6 +57,5 @@ const Resultat = () => {
             </ul>
         </div>
     );
-};
-
-export default Resultat;
+}
+export default ResultatListeRecettes;

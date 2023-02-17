@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/recipePersonalized")
+
 public class RecipePersoController {
     private List<RecipePersonalized> recipes = new ArrayList<>();
     private List<RecipeEdamam> likeRecettes = new ArrayList<>();
@@ -161,6 +162,43 @@ public class RecipePersoController {
     @GetMapping("/getLike")
     public List<RecipeEdamam> getLike() throws JsonProcessingException {
         return likeRecettes;
+    }
+
+    public void affiche(Analyse a){
+        List<String> recommandations = a.getRecommandations();
+        List<QuantityCat> results = a.getResults();
+        for(String re : recommandations){
+            System.out.println(a);
+        }
+        for(QuantityCat q : results){
+            System.out.println(q);
+        }
+    }
+
+
+
+    @GetMapping("/analyseWeek")
+    public Analyse analyseWeek(){
+        System.out.println("JE TRAITE HISTORIQUE");
+        Analyse analyse;
+        List<QuantityCat> results = recipePersoService.analyseWeek(this.recipes);
+        List<String> recommandations = recipePersoService.recommandationWeek(this.recipes);
+        analyse = new Analyse(results, recommandations);
+        System.out.println("avant REPONSE historique");
+        affiche(analyse);
+        return analyse;
+    }
+
+    @GetMapping("/analyseMonth")
+    public Analyse analyseMonth(){
+        System.out.println("JE TRAITE HISTORIQUE");
+        Analyse analyse;
+        List<QuantityCat> results = recipePersoService.analyseMonth(this.recipes);
+        List<String> recommandations = recipePersoService.recommandationMonth(this.recipes);
+        analyse = new Analyse(results, recommandations);
+        System.out.println("avant REPONSE historique");
+        affiche(analyse);
+        return analyse;
     }
 }
 

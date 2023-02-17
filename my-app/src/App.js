@@ -8,14 +8,17 @@ import AjoutRecettes from './component/AjoutRecettes';
 import Historique from './component/Historique';
 import OneRecipePerDayComponent from './component/OneRecipePerDayComponent';
 import UserRegistration from "./component/UserRegistration";
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import Login from './component/Login';
 import HistoriqueSimilaire  from "./component/HistoriqueSimilaire";
+
+function ResultatMois() {
+    return null;
+}
+
+function ResultatsSemaine() {
+    return null;
+}
+
 function App() {
   return (
 
@@ -75,6 +78,8 @@ function App() {
                  <Route path='/recipeotd' element={<OneRecipePerDayComponent/>}/>
                  <Route path='/Login' element={<Login/>}/>
                  <Route path='/HistoriqueSimilaire' element={<HistoriqueSimilaire/>}/>
+                 <Route path='/ResultatsSemaine' element={<ResultatsSemaine/>}/>
+                 <Route path='/ResultatMois' element={<ResultatMois/>}/>
 
              </Routes>
          </BrowserRouter>

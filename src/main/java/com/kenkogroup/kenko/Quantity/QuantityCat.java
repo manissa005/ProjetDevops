@@ -27,4 +27,8 @@ public class QuantityCat {
         this.percentage=percentage;
     }
     public void setQuantity(double quantity){this.quantity=quantity;}
+
+    public String toString(){
+        return this.category+", "+this.percentage+", "+this.quantity;
+    }
 }

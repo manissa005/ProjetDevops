@@ -302,35 +302,35 @@ public class AnalyseDietetique {
      */
     public List<QuantityCat>analyseDay(List<RecipePersonalized>recipes){
         List<QuantityCat>results= new ArrayList<>();
-        if(recipes.size()==3){
-            double quantityTotal=quantityTotalRecipes(recipes);
-            String category;
-            double percentage;
+        //if(recipes.size()==3){
+        double quantityTotal=quantityTotalRecipes(recipes);
+        String category;
+        double percentage;
 
 //AJOUTPOURCENTAGEDESVIANDES
-            double quantityCat=quantityViandeRecipes(recipes);
-            category="ViandesetOeufs";
-            percentage=percentageCategory(quantityTotal,quantityCat);
-            results.add(new QuantityCat(category,percentage,quantityCat));
+        double quantityCat=quantityViandeRecipes(recipes);
+        category="Viandes et Oeufs";
+        percentage=percentageCategory(quantityTotal,quantityCat);
+        results.add(new QuantityCat(category,percentage,quantityCat));
 
 //AJOUTPOURCENTAGEDESFECULENTS
-            quantityCat=quantityFeculentsRecipes(recipes);
-            category="Féculents";
-            percentage=percentageCategory(quantityTotal,quantityCat);
-            results.add(new QuantityCat(category,percentage,quantityCat));
+        quantityCat=quantityFeculentsRecipes(recipes);
+        category="Féculents";
+        percentage=percentageCategory(quantityTotal,quantityCat);
+        results.add(new QuantityCat(category,percentage,quantityCat));
 
 //AJOUTPOURCENTAGEFRUITSETLEGUMES
-            quantityCat=quantityFruitsLegumesRecipes(recipes);
-            category="FruitsetLégumes";
-            percentage=percentageCategory(quantityTotal,quantityCat);
-            results.add(new QuantityCat(category,percentage,quantityCat));
+        quantityCat=quantityFruitsLegumesRecipes(recipes);
+        category="Fruits et Légumes";
+        percentage=percentageCategory(quantityTotal,quantityCat);
+        results.add(new QuantityCat(category,percentage,quantityCat));
 
 //AJOUTPOURCENTAGEPRODUITSLAITIERS
-            quantityCat=quantityProduitsLaitiersRecipes(recipes);
-            category="ProduitsLaitiers";
-            percentage=percentageCategory(quantityTotal,quantityCat);
-            results.add(new QuantityCat(category,percentage,quantityCat));
-        }
+        quantityCat=quantityProduitsLaitiersRecipes(recipes);
+        category="Produits Laitiers";
+        percentage=percentageCategory(quantityTotal,quantityCat);
+        results.add(new QuantityCat(category,percentage,quantityCat));
+        //}
         return results;
     }
 
@@ -342,47 +342,39 @@ public class AnalyseDietetique {
             String cat=c.getCategory();
             double per=c.getPercentage();
             double qua=c.getQuantity();
-            if(cat=="ViandesetOeufs"){
-                if(qua==0)results.add("Absencedeviandes,poissons,oeufs");
-                else if(qua>350)results.add("Excèsdeviandes,poissonsoud'oeufs");
-                else if(qua>0&&qua<250)results.add("Insuffisancedeviandes,poissons,oeufs");
+            if(cat=="Viandes et Oeufs"){
+                if(qua==0)results.add("Absence de viandes,poissons,oeufs");
+                else if(qua>350)results.add("Excès de viandes,poissons ou d'oeufs");
+                else if(qua>0&&qua<250)results.add("Insuffisance de viandes,poissons,oeufs");
             }
-            else if(cat=="ProduitsLaitiers"){
-                if(qua==0)results.add("Absenceproduitslaitiers");
-                else if(qua>500)results.add("Excèsdeproduitslaitiers");
-                else if(qua>0&&qua<150)results.add("Insufisancedeproduitslaitiers");
+            else if(cat=="Produits Laitiers"){
+                if(qua==0)results.add("Absence produits laitiers");
+                else if(qua>500)results.add("Excès de produits laitiers");
+                else if(qua>0&&qua<150)results.add("Insufisance de produits laitiers");
             }
-            else if(cat=="FruitsetLégumes"){
-                if(qua==0)results.add("Absencedefruitsetlégumes");
-                else if(qua>0&&qua<350)results.add("Insuffisancedefruitsetlégumes");
+            else if(cat=="Fruits et Légumes"){
+                if(qua==0)results.add("Absence de fruits et légumes");
+                else if(qua>0&&qua<350)results.add("Insuffisance de fruits et légumes");
             }
-else{
-                if(qua==0)results.add("Absencedeféculents");
-                else if(qua>700)results.add("Excèsdeféculents");
-                else if(qua>0&&qua<350)results.add("Insuffisancedeféculents");
+            else{
+                if(qua==0)results.add("Absence de féculents");
+                else if(qua>700)results.add("Excès de féculents");
+                else if(qua>0&&qua<350)results.add("Insuffisance de féculents");
             }
         }
 
 //Analysedelaquantitédechaquerepasseul
         double quantityDay=quantityTotalRecipes(recipes);
-        for(RecipePersonalized recipe:recipes){
-            String type=recipe.getType();
-            double quantityRecipe=quantityTotalRecipe(recipe);
-            double percentage=percentageCategory(quantityDay,quantityRecipe);
-            switch(type){
-                case"petit_dej":{
-                    if(percentage==0)results.add("Absencepetitdejeuner!!");
-                    else if(percentage<20)results.add("Quantitéinsuffisanteaupetitdejeuner");
-                }
-                case"dej":{
-                    if(percentage==0)results.add("Absencedejeuner!!");
-                    else if(percentage<20)results.add("Quantitéinsuffisanteaudejeuner");
-                }
-                case"dinner":{
-                    if(percentage==0)results.add("Absencedinner!!");
-                    else if(percentage<20)results.add("Quantitéinsuffisanteaudinner");
-                    else if(percentage>55)results.add("Quantitérecommandéedépasséeaudinner");
-                }
+        for(RecipePersonalized recipe:recipes) {
+            String type = recipe.getType();
+            double quantityRecipe = quantityTotalRecipe(recipe);
+            double percentage = percentageCategory(quantityDay, quantityRecipe);
+            if (type == "petit_dej") {
+                if (percentage < 20) results.add("Quantité insuffisante au petit dejeuner");
+            } else if (type == "dej") {
+                if (percentage < 20) results.add("Quantité insuffisante au dejeuner");
+            } else {
+                if (percentage < 20) results.add("Quantité insuffisante au dinner");
             }
         }
         return results;
@@ -402,38 +394,66 @@ else{
      */
     public List <QuantityCat>analyseWeek(List<RecipePersonalized>recipes){
         List<QuantityCat>results=new ArrayList<>();
-        if(recipes.size()==21){
-            double quantityTotal=quantityTotalRecipes(recipes);
-            String category;
-            double percentage;
+        double quantityTotal=quantityTotalRecipes(recipes);
+        String category;
+        double percentage;
 
 //AJOUTPOURCENTAGEDESVIANDES
-            double quantityCat=quantityViandeRecipes(recipes);
-            category="ViandesetOeufs";
-            percentage=percentageCategory(quantityTotal,quantityCat);
-            results.add(new QuantityCat(category,percentage,quantityCat));
+        double quantityCat=quantityViandeRecipes(recipes);
+        category="Viandes et Oeufs";
+        percentage=percentageCategory(quantityTotal,quantityCat);
+        results.add(new QuantityCat(category,percentage,quantityCat));
 
 //AJOUTPOURCENTAGEDESFECULENTS
-            quantityCat=quantityFeculentsRecipes(recipes);
-            category="Féculents";
-            percentage=percentageCategory(quantityTotal,quantityCat);
-            results.add(new QuantityCat(category,percentage,quantityCat));
+        quantityCat=quantityFeculentsRecipes(recipes);
+        category="Féculents";
+        percentage=percentageCategory(quantityTotal,quantityCat);
+        results.add(new QuantityCat(category,percentage,quantityCat));
 
 //AJOUTPOURCENTAGEFRUITSETLEGUMES
-            quantityCat=quantityFruitsLegumesRecipes(recipes);
-            category="FruitsetLégumes";
-            percentage=percentageCategory(quantityTotal,quantityCat);
-            results.add(new QuantityCat(category,percentage,quantityCat));
+        quantityCat=quantityFruitsLegumesRecipes(recipes);
+        category="Fruits et Légumes";
+        percentage=percentageCategory(quantityTotal,quantityCat);
+        results.add(new QuantityCat(category,percentage,quantityCat));
 
 //AJOUTPOURCENTAGEPRODUITSLAITIERS
-            quantityCat=quantityProduitsLaitiersRecipes(recipes);
-            category="ProduitsLaitiers";
-            percentage=percentageCategory(quantityTotal,quantityCat);
-            results.add(new QuantityCat(category,percentage,quantityCat));
-        }
+        quantityCat=quantityProduitsLaitiersRecipes(recipes);
+        category="Produits Laitiers";
+        percentage=percentageCategory(quantityTotal,quantityCat);
+        results.add(new QuantityCat(category,percentage,quantityCat));
         return results;
     }
 
+    public List<String> recommandationWeek(List<RecipePersonalized>recipes){
+        List<QuantityCat>analyse=analyseDay(recipes);
+        List<String>results=new ArrayList<>();
+//Analysequantitésdechaquecatégoried'alimentsselonlesnormesd'unjour
+        for(QuantityCat c:analyse){
+            String cat=c.getCategory();
+            double per=c.getPercentage();
+            double qua=c.getQuantity();
+            if(cat=="Viandes et Oeufs"){
+                if(qua==0)results.add("Absence de viandes,poissons,oeufs");
+                else if(qua>2500)results.add("Excès de viandes,poissons ou d'oeufs");
+                else if(qua>0&&qua<1000)results.add("Insuffisance de viandes,poissons,oeufs");
+            }
+            else if(cat=="Produits Laitiers"){
+                if(qua==0)results.add("Absence produits laitiers");
+                else if(qua>3500)results.add("Excès de produits laitiers");
+                else if(qua>0&&qua<1050)results.add("Insufisance de produits laitiers");
+            }
+            else if(cat=="Fruits et Légumes"){
+                if(qua==0)results.add("Absence de fruits et légumes");
+                else if(qua>0&&qua<2450)results.add("Insuffisance de fruits et légumes");
+            }
+            else{
+                if(qua==0)results.add("Absence de féculents");
+                else if(qua>4900)results.add("Excès de féculents");
+                else if(qua>0&&qua<2000)results.add("Insuffisance de féculents");
+            }
+        }
+        return results;
+    }
     public double noteWeek(){
         double note=0;
         return note;
@@ -455,7 +475,7 @@ else{
 
 //AJOUTPOURCENTAGEDESVIANDES
         double quantityCat=quantityViandeRecipes(recipes);
-        category="ViandesetOeufs";
+        category="Viandes et Oeufs";
         percentage=percentageCategory(quantityTotal,quantityCat);
         results.add(new QuantityCat(category,percentage,quantityCat));
 
@@ -467,15 +487,21 @@ else{
 
 //AJOUTPOURCENTAGEFRUITSETLEGUMES
         quantityCat=quantityFruitsLegumesRecipes(recipes);
-        category="FruitsetLégumes";
+        category="Fruits et Légumes";
         percentage=percentageCategory(quantityTotal,quantityCat);
         results.add(new QuantityCat(category,percentage,quantityCat));
 
 //AJOUTPOURCENTAGEPRODUITSLAITIERS
         quantityCat=quantityProduitsLaitiersRecipes(recipes);
-        category="ProduitsLaitiers";
+        category="Produits Laitiers";
         percentage=percentageCategory(quantityTotal,quantityCat);
         results.add(new QuantityCat(category,percentage,quantityCat));
+        return results;
+    }
+
+    public List<String> recommandationMonth(List<RecipePersonalized>recipes){
+        List<String> results= new ArrayList<>();
+        results.add("");
         return results;
     }
 

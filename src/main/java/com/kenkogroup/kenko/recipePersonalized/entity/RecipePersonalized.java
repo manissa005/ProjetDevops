@@ -1,27 +1,14 @@
 package com.kenkogroup.kenko.recipePersonalized.entity;
 import com.kenkogroup.kenko.ingredient.entity.Ingredient;
-
-import javax.persistence.*;
 import java.util.List;
 
-//@Entity
-//@Table(name = "recipePersonalized")
 public class RecipePersonalized {
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column(name="idRecipe", nullable=false) //peut poser pb le nom de la colonne
     private int idRecipe;
-    //@Column(name="name")
     private String name;
-    //@Column(name="category")
     private int category;
-    //@OneToMany(mappedBy = "recipe")
     private List<Ingredient> ingredients;
-    //@Column(name="description")
     private String description;
-    //@Column(name="duration")
     private int duration;
-    //@Column(name="taken")
     private boolean taken;
     private String type;
 
@@ -98,10 +85,17 @@ public class RecipePersonalized {
         this.type=type;
     }
 
+
+
+
+
     public String getType(){
         return type;
     }
     @Override
+
+
+
     public String toString() {
         return "RecipePersonalized{" +
                 "idRecipe=" + idRecipe +
@@ -111,6 +105,14 @@ public class RecipePersonalized {
                 ", description='" + description + '\'' +
                 ", duration=" + duration +
                 ", taken=" + taken +
+                ", type=" + type +
                 '}';
+
+
+
+
+
+
+
     }
 }

@@ -7,58 +7,76 @@ import ReceiptsDataService from '../services/RecipeService'
 import {Link} from "react-router-dom";
 import './recetteImage.jpg';
 const Historique = () => {
+    const [recettes, setRecettes] = useState([]);
 
-    const [recettes, setRecettes] = useState([])
     const similaire = (id) => {
-        ReceiptsDataService.postLike(id).then(response => {
+        ReceiptsDataService.postLike(id)
+            .then((response) => {})
+            .catch((e) => {
+                console.log(e);
+            });
+    };
 
-        }).catch(e => {
-            console.log(e)
-        })
-    }
     const getAllRecettes = () => {
-        ReceiptsDataService.getAll().then(response => {
-            setRecettes(response.data)
-        }).catch(e => {
-            console.log(e)
-        })
-    }
+        ReceiptsDataService.getAll()
+            .then((response) => {
+                setRecettes(response.data);
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    };
 
     useEffect(() => {
-        getAllRecettes()
-    }, [])
+        getAllRecettes();
+    }, []);
+
     return (
         <div>
-
-            <h2 className="titre2">Votre historique de recettes ! </h2>
-            <h5> Vous pouvez avoir une analyse complète de ce que vous avez manger en cliquant sur le bouton  !</h5>
+            <h1 className="titre2">Historique des recettes</h1>
             <div className="container2">
-                <Table className="table" striped="columns">
+                <Table className="table" striped>
                     <thead>
                     <tr>
                         <th>#</th>
                         <th>nom</th>
                         <th>description</th>
                         <th>image</th>
+                        <th>actions</th>
                     </tr>
                     </thead>
                     <tbody className="row2">
-                    {recettes.map((recettes, index) => (
-                        <tr>
-                            <td>{index}</td>
-                            <td>{recettes.name}</td>
-                            <td>{recettes.description}</td>
-                            <td><img src='./recetteImage.jpg' width='60' height={60} /></td>
-                            <td><button onClick={ () => similaire(recettes.name) } >Like</button></td>
-
-                        </tr>))}
+                    {recettes.map((recette, index) => (
+                        <tr key={recette.id}>
+                            <td>{index + 1}</td>
+                            <td>{recette.name}</td>
+                            <td>{recette.description}</td>
+                            <td>
+                                <img src={recette.image} alt={recette.name} width="70" height="70" />
+                            </td>
+                            <td>
+                                <Button variant="primary" onClick={() => similaire(recette.id)}>
+                                    Like
+                                </Button>
+                            </td>
+                        </tr>
+                    ))}
                     </tbody>
                 </Table>
-                <button> <Link to = "/ResultatListeRecettes" type="button" onClick={getAllListe} className="btn btn-primary add-to-receipt">Analyser l'historique des recettes </Link></button>
-
+                <div className="button-group">
+                    <Button as={Link} to="/ResultatListeRecettes" variant="primary" className="add-to-receipt">
+                        Faire une analyse de mon alimentation du Jour
+                    </Button>
+                    <Button as={Link} to="/ResultatsSemaine" variant="primary" className="add-to-receipt">
+                        Faire une analyse de mon alimentation de la Semaine
+                    </Button>
+                    <Button as={Link} to="/ResultatMois" variant="primary" className="add-to-receipt">
+                        Faire une analyse de mon alimentation du Mois
+                    </Button>
+                </div>
             </div>
         </div>
-    )
+    );
 }
 export default Historique;
 

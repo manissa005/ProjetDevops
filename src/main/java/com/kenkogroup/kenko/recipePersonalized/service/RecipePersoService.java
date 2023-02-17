@@ -52,4 +52,19 @@ public class RecipePersoService {
     public List<String> recommandationDay(List<RecipePersonalized> recipes){
         return analyse.recommandationDay(recipes);
     }
+
+    public List<QuantityCat> analyseWeek(List<RecipePersonalized> recipes){
+        return analyse.analyseWeek(recipes);
+    }
+    public List<QuantityCat> analyseMonth(List<RecipePersonalized> recipes){
+        return analyse.analyseMonth(recipes);
+    }
+
+    public List<String> recommandationWeek(List<RecipePersonalized> recipes){
+        return analyse.recommandationWeek(recipes);
+    }
+
+    public List<String> recommandationMonth(List<RecipePersonalized> recipes){
+        return analyse.recommandationMonth(recipes);
+    }
 }
